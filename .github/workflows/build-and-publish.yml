@@ -36,4 +36,4 @@ jobs:
         run: dotnet pack --configuration Release --no-build
 
       - name: NuGet Push
-        run: dotnet nuget push VMelnalksnis.ISO20022DotNet --api-key ${{ NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push VMelnalksnis.ISO20022DotNet --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
