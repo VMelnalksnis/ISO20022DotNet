@@ -33,7 +33,9 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
 
       - name: Pack
-        run: dotnet pack --configuration Release --no-build -v detailed
+        run: dotnet pack --configuration Release --no-build
+
+      - run: pwd
 
       - name: NuGet Push
-        run: dotnet nuget push "*.nupkg" -v detailed --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
