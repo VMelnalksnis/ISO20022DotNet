@@ -6,12 +6,30 @@
         
         <Nullable>enable</Nullable>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
-        
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+
+        <Product>VMelnalksnis.ISO20022DotNet</Product>
+        <ProductId>VMelnalksnis.ISO20022DotNet</ProductId>
+        <Description>ISO 20022 message models for .NET</Description>
         <Copyright>Valters Melnalksnis</Copyright>
+        <NeutralLanguage>en-US</NeutralLanguage>
+        <Authors>Valters Melnalksnis</Authors>
+        <PackageTags>iso20022</PackageTags>
         <RepositoryUrl>https://github.com/VMelnalksnis/ISO20022DotNet</RepositoryUrl>
+        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <RepositoryType>git</RepositoryType>
+        <IsPackable>true</IsPackable>
+
+        <Major>0</Major>
+        <Minor>1</Minor>
+        <Revision>0</Revision>
+
+        <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
+
+        <AssemblyVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyVersion>
+        <AssemblyFileVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</AssemblyFileVersion>
+        <InformationalVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</InformationalVersion>
+        <PackageVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

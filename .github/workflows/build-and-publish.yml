@@ -1,7 +1,7 @@
 name: build and test
 
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
 jobs:
@@ -31,3 +31,9 @@ jobs:
         uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Pack
+        run: dotnet pack --configuration Release --no-build
+
+      - name: NuGet Push
+        run: dotnet nuget push VMelnalksnis.ISO20022DotNet --api-key ${{ NUGET_KEY }} --source https://api.nuget.org/v3/index.json
