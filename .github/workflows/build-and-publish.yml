@@ -39,3 +39,4 @@ jobs:
 
       - name: NuGet Push
         run: dotnet nuget push "*.nupkg" --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json
+        working-directory: src/VMelnalksnis.ISO20022DotNet/bin/Release
