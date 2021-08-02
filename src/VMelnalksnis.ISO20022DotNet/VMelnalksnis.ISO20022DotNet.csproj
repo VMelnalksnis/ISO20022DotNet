@@ -19,6 +19,8 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <RepositoryType>git</RepositoryType>
         <IsPackable>true</IsPackable>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
         <Major>0</Major>
         <Minor>1</Minor>
