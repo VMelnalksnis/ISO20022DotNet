@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMelnalksnis.ISO20022DotNet", "src\VMelnalksnis.ISO20022DotNet\VMelnalksnis.ISO20022DotNet.csproj", "{8AEFD671-A2C0-4971-8475-02AC789282B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{760EA339-4B69-41E1-88EC-510992A1E56F}"
+ProjectSection(SolutionItems) = preProject
+	.gitattributes = .gitattributes
+	.gitignore = .gitignore
+	LICENSE = LICENSE
+	README.md = README.md
+	stylecop.json = stylecop.json
+	Directory.Build.props = Directory.Build.props
+EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMelnalksnis.ISO20022DotNet.Tests", "tests\VMelnalksnis.ISO20022DotNet.Tests\VMelnalksnis.ISO20022DotNet.Tests.csproj", "{D2CD56EB-494B-4A1F-820A-5FBC73E70491}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AEFD671-A2C0-4971-8475-02AC789282B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AEFD671-A2C0-4971-8475-02AC789282B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AEFD671-A2C0-4971-8475-02AC789282B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AEFD671-A2C0-4971-8475-02AC789282B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2CD56EB-494B-4A1F-820A-5FBC73E70491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2CD56EB-494B-4A1F-820A-5FBC73E70491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2CD56EB-494B-4A1F-820A-5FBC73E70491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2CD56EB-494B-4A1F-820A-5FBC73E70491}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
