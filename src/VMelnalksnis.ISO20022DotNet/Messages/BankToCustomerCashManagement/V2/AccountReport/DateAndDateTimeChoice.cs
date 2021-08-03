@@ -1,76 +1,42 @@
-﻿using System;
-using System.CodeDom.Compiler;
+﻿// Copyright 2021 Valters Melnalksnis
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License in the project root or at
+//
+// https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.AccountReport
 {
-	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
+	/// <summary>
+	/// Choice between a date or a date and time format.
+	/// </summary>
 	[Serializable]
 	[XmlType("DateAndDateTimeChoice", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	public sealed record DateAndDateTimeChoice
 	{
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		/// <summary>
+		/// Gets specified date.
+		/// </summary>
 		[XmlElement("Dt", DataType = "date")]
-		public DateTime DtValue { get; init; }
+		public DateTime? Date { get; init; }
 
 		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the Dt property is specified.</para>
+		/// Gets specified date and time.
 		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool DtValueSpecified { get; init; }
-
-		[XmlIgnore]
-		public DateTime? Dt
-		{
-			get
-			{
-				if (DtValueSpecified)
-				{
-					return DtValue;
-				}
-
-				return null;
-			}
-			init
-			{
-				DtValue = value.GetValueOrDefault();
-				DtValueSpecified = value.HasValue;
-			}
-		}
-
-		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("DtTm", DataType = "dateTime")]
-		public DateTime DtTmValue { get; init; }
-
-		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the DtTm property is specified.</para>
-		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool DtTmValueSpecified { get; init; }
-
-		[XmlIgnore]
-		public DateTime? DtTm
-		{
-			get
-			{
-				if (DtTmValueSpecified)
-				{
-					return DtTmValue;
-				}
-
-				return null;
-			}
-			init
-			{
-				DtTmValue = value.GetValueOrDefault();
-				DtTmValueSpecified = value.HasValue;
-			}
-		}
+		public DateTime? DateTime { get; init; }
 	}
 }

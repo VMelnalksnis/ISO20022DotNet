@@ -1,49 +1,62 @@
-﻿using System;
-using System.CodeDom.Compiler;
+﻿// Copyright 2021 Valters Melnalksnis
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License in the project root or at
+//
+// https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.AccountReport
 {
-	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
+	/// <summary>
+	/// Set of elements used to provide summary information on entries.
+	/// </summary>
 	[Serializable]
 	[XmlType("TotalTransactions2", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	public sealed record TotalTransactions2
 	{
+		[XmlIgnore]
+		private Collection<TotalsPerBankTransactionCode2> _totalEntriesPerBankTransactionCode = new();
+
+		/// <summary>
+		/// Gets the total number and sum of debit and credit entries.
+		/// </summary>
 		[XmlElement("TtlNtries")]
-		public NumberAndSumOfTransactions2 TtlNtries { get; init; }
+		public NumberAndSumOfTransactions2? TotalEntries { get; init; }
 
+		/// <summary>
+		/// Gets the total number and sum of credit entries.
+		/// </summary>
 		[XmlElement("TtlCdtNtries")]
-		public NumberAndSumOfTransactions1 TtlCdtNtries { get; init; }
+		public NumberAndSumOfTransactions1? TotalCreditEntries { get; init; }
 
+		/// <summary>
+		/// Gets the total number and sum of debit entries.
+		/// </summary>
 		[XmlElement("TtlDbtNtries")]
-		public NumberAndSumOfTransactions1 TtlDbtNtries { get; init; }
+		public NumberAndSumOfTransactions1? TotalDebitEntries { get; init; }
 
-		[XmlIgnore]
-		private System.Collections.ObjectModel.Collection<TotalsPerBankTransactionCode2> _ttlNtriesPerBkTxCd;
-
+		/// <summary>
+		/// Gets the total number and sum of entries per bank transaction code.
+		/// </summary>
 		[XmlElement("TtlNtriesPerBkTxCd")]
-		public System.Collections.ObjectModel.Collection<TotalsPerBankTransactionCode2> TtlNtriesPerBkTxCd
+		public Collection<TotalsPerBankTransactionCode2> TotalEntriesPerBankTransactionCode
 		{
-			get => _ttlNtriesPerBkTxCd;
-			private set => _ttlNtriesPerBkTxCd = value;
-		}
-
-		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the TtlNtriesPerBkTxCd collection is empty.</para>
-		/// </summary>
-		[XmlIgnore]
-		public bool TtlNtriesPerBkTxCdSpecified => TtlNtriesPerBkTxCd.Count != 0;
-
-		/// <summary>
-		/// <para xml:lang="en">Initializes a new instance of the <see cref="TotalTransactions2" /> class.</para>
-		/// </summary>
-		public TotalTransactions2()
-		{
-			_ttlNtriesPerBkTxCd = new();
+			get => _totalEntriesPerBankTransactionCode;
+			private set => _totalEntriesPerBankTransactionCode = value;
 		}
 	}
 }

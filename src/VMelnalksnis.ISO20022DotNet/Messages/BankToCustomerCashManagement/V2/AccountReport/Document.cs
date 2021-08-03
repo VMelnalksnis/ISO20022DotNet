@@ -12,7 +12,6 @@
 // limitations under the License.
 
 using System;
-using System.CodeDom.Compiler;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -20,7 +19,9 @@ using System.Xml.Serialization;
 
 namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.AccountReport
 {
-	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
+	/// <summary>
+	/// The XML document that holds the <see cref="BankToCustomerAccountReportV02"/> message.
+	/// </summary>
 	[Serializable]
 	[XmlType("Document", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	[DebuggerStepThrough]
@@ -28,8 +29,11 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	[XmlRoot("Document", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	public sealed record Document
 	{
+		/// <summary>
+		/// Gets the message.
+		/// </summary>
 		[Required]
 		[XmlElement("BkToCstmrAcctRpt")]
-		public BankToCustomerAccountReportV02 BkToCstmrAcctRpt { get; init; }
+		public BankToCustomerAccountReportV02 BankToCustomerAccountReport { get; init; } = null!;
 	}
 }

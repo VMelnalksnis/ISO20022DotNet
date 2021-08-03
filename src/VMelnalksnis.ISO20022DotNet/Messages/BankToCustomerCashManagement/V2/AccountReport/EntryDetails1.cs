@@ -1,42 +1,50 @@
-﻿using System;
-using System.CodeDom.Compiler;
+﻿// Copyright 2021 Valters Melnalksnis
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License in the project root or at
+//
+// https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
 namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.AccountReport
 {
-	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
+	/// <summary>
+	/// Set of elements used to provide details on the entry.
+	/// </summary>
 	[Serializable]
 	[XmlType("EntryDetails1", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	public sealed record EntryDetails1
 	{
-		[XmlElement("Btch")]
-		public BatchInformation2 Btch { get; init; }
-
-		[XmlIgnore] private System.Collections.ObjectModel.Collection<EntryTransaction2> _txDtls;
-
-		[XmlElement("TxDtls")]
-		public System.Collections.ObjectModel.Collection<EntryTransaction2> TxDtls
-		{
-			get => _txDtls;
-			private set => _txDtls = value;
-		}
-
-		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the TxDtls collection is empty.</para>
-		/// </summary>
 		[XmlIgnore]
-		public bool TxDtlsSpecified => TxDtls.Count != 0;
+		private Collection<EntryTransaction2> _transactionDetails = new();
 
 		/// <summary>
-		/// <para xml:lang="en">Initializes a new instance of the <see cref="EntryDetails1" /> class.</para>
+		/// Gets set of elements used to provide details on batched transactions.
 		/// </summary>
-		public EntryDetails1()
+		[XmlElement("Btch")]
+		public BatchInformation2? Batch { get; init; }
+
+		/// <summary>
+		/// Gets set of elements used to provide information on the underlying transaction(s).
+		/// </summary>
+		[XmlElement("TxDtls")]
+		public Collection<EntryTransaction2> TransactionDetails
 		{
-			_txDtls = new();
+			get => _transactionDetails;
+			private set => _transactionDetails = value;
 		}
 	}
 }

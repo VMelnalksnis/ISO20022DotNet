@@ -1,5 +1,17 @@
-﻿using System;
-using System.CodeDom.Compiler;
+﻿// Copyright 2021 Valters Melnalksnis
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License in the project root or at
+//
+// https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -8,211 +20,136 @@ using System.Xml.Serialization;
 
 namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.AccountReport
 {
-	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
+	/// <summary>
+	/// Reports on a cash account.
+	/// </summary>
 	[Serializable]
 	[XmlType("AccountReport11", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	public sealed record AccountReport11
 	{
+		[XmlIgnore]
+		private Collection<AccountInterest2> _interest = new();
+		[XmlIgnore]
+		private Collection<CashBalance3> _balance = new();
+		[XmlIgnore]
+		private Collection<ReportEntry2> _entry = new();
+
 		/// <summary>
-		/// <para xml:lang="en">Minimum length: 1.</para>
-		/// <para xml:lang="en">Maximum length: 35.</para>
+		/// Gets unique identification, as assigned by the account servicer, to unambiguously identify the account report.
 		/// </summary>
 		[MinLength(1)]
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("Id")]
-		public string Id { get; init; }
+		public string Identification { get; init; } = string.Empty;
 
 		/// <summary>
+		/// Gets sequential number of the report, as assigned by the account servicer.
 		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
 		/// <para xml:lang="en">Total number of digits: 18.</para>
 		/// </summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		/// <remarks>
+		/// The sequential number is increased incrementally for each report sent electronically.
+		/// </remarks>
 		[XmlElement("ElctrncSeqNb")]
-		public decimal ElctrncSeqNbValue { get; init; }
+		public decimal? ElectronicSequenceNumber { get; init; }
 
 		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the ElctrncSeqNb property is specified.</para>
-		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool ElctrncSeqNbValueSpecified { get; init; }
-
-		/// <summary>
+		/// Gets legal sequential number of the report, as assigned by the account servicer.
+		/// It is increased incrementally for each report sent.
 		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
 		/// <para xml:lang="en">Total number of digits: 18.</para>
 		/// </summary>
-		[XmlIgnore]
-		public decimal? ElctrncSeqNb
-		{
-			get
-			{
-				if (ElctrncSeqNbValueSpecified)
-				{
-					return ElctrncSeqNbValue;
-				}
-
-				return null;
-			}
-			init
-			{
-				ElctrncSeqNbValue = value.GetValueOrDefault();
-				ElctrncSeqNbValueSpecified = value.HasValue;
-			}
-		}
-
-		/// <summary>
-		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
-		/// <para xml:lang="en">Total number of digits: 18.</para>
-		/// </summary>
-		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("LglSeqNb")]
-		public decimal LglSeqNbValue { get; init; }
+		public decimal? LegalSequenceNumber { get; init; }
 
 		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the LglSeqNb property is specified.</para>
+		/// Gets date and time at which the message was created.
 		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool LglSeqNbValueSpecified { get; init; }
-
-		/// <summary>
-		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
-		/// <para xml:lang="en">Total number of digits: 18.</para>
-		/// </summary>
-		[XmlIgnore]
-		public decimal? LglSeqNb
-		{
-			get
-			{
-				if (LglSeqNbValueSpecified)
-				{
-					return LglSeqNbValue;
-				}
-
-				return null;
-			}
-			init
-			{
-				LglSeqNbValue = value.GetValueOrDefault();
-				LglSeqNbValueSpecified = value.HasValue;
-			}
-		}
-
 		[Required]
 		[XmlElement("CreDtTm", DataType = "dateTime")]
-		public DateTime CreDtTm { get; init; }
-
-		[XmlElement("FrToDt")]
-		public DateTimePeriodDetails FrToDt { get; init; }
-
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[XmlElement("CpyDplctInd")]
-		public CopyDuplicate1Code CpyDplctIndValue { get; init; }
+		public DateTime CreationDateTime { get; init; }
 
 		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the CpyDplctInd property is specified.</para>
+		/// Gets range of time between a start date and an end date for which the account report is issued.
 		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CpyDplctIndValueSpecified { get; init; }
+		[XmlElement("FrToDt")]
+		public DateTimePeriodDetails? FromToDate { get; init; }
 
-		[XmlIgnore]
-		public CopyDuplicate1Code? CpyDplctInd
-		{
-			get
-			{
-				if (CpyDplctIndValueSpecified)
-				{
-					return CpyDplctIndValue;
-				}
+		/// <summary>
+		/// Gets a value which indicates whether the document is a copy, a duplicate, or a duplicate of a copy.
+		/// </summary>
+		[XmlElement("CpyDplctInd")]
+		public CopyDuplicate1Code? CopyDuplicateIndicator { get; init; }
 
-				return null;
-			}
-			init
-			{
-				CpyDplctIndValue = value.GetValueOrDefault();
-				CpyDplctIndValueSpecified = value.HasValue;
-			}
-		}
-
+		/// <summary>
+		/// Gets specifies the application used to generate the reporting.
+		/// </summary>
 		[XmlElement("RptgSrc")]
-		public ReportingSource1Choice RptgSrc { get; init; }
+		public ReportingSource1Choice? ReportingSource { get; init; }
 
+		/// <summary>
+		/// Gets unambiguous identification of the account to which credit and debit entries are made.
+		/// </summary>
 		[Required]
 		[XmlElement("Acct")]
-		public CashAccount20 Acct { get; init; }
+		public CashAccount20 Account { get; init; } = null!;
 
+		/// <summary>
+		/// Gets identifies the parent account of the account for which the report has been issued.
+		/// </summary>
 		[XmlElement("RltdAcct")]
-		public CashAccount16 RltdAcct { get; init; }
+		public CashAccount16? RelatedAccount { get; init; }
 
-		[XmlIgnore] private Collection<AccountInterest2> _intrst;
-
+		/// <summary>
+		/// Gets set of elements used to provide general interest information
+		/// that applies to the account at a particular moment in time.
+		/// </summary>
 		[XmlElement("Intrst")]
-		public Collection<AccountInterest2> Intrst
+		public Collection<AccountInterest2> Interest
 		{
-			get => _intrst;
-			private set => _intrst = value;
+			get => _interest;
+			private set => _interest = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the Intrst collection is empty.</para>
+		/// Gets set of elements used to define the balance as a numerical representation of the
+		/// net increases and decreases in an account at a specific point in time.
 		/// </summary>
-		[XmlIgnore]
-		public bool IntrstSpecified => Intrst.Count != 0;
-
-		/// <summary>
-		/// <para xml:lang="en">Initializes a new instance of the <see cref="AccountReport11" /> class.</para>
-		/// </summary>
-		public AccountReport11()
-		{
-			_intrst = new();
-			_bal = new();
-			_ntry = new();
-		}
-
-		[XmlIgnore] private Collection<CashBalance3> _bal;
-
 		[XmlElement("Bal")]
-		public Collection<CashBalance3> Bal
+		public Collection<CashBalance3> Balance
 		{
-			get => _bal;
-			private set => _bal = value;
+			get => _balance;
+			private set => _balance = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the Bal collection is empty.</para>
+		/// Gets set of elements used to provide summary information on entries.
 		/// </summary>
-		[XmlIgnore]
-		public bool BalSpecified => Bal.Count != 0;
-
 		[XmlElement("TxsSummry")]
-		public TotalTransactions2 TxsSummry { get; init; }
+		public TotalTransactions2? TransactionsSummary { get; init; }
 
-		[XmlIgnore] private Collection<ReportEntry2> _ntry;
-
+		/// <summary>
+		/// Gets set of elements used to specify an entry in the report.
+		/// </summary>
+		/// <remarks>
+		/// At least one reference must be provided to identify the entry and its underlying transaction(s).
+		/// </remarks>
 		[XmlElement("Ntry")]
-		public Collection<ReportEntry2> Ntry
+		public Collection<ReportEntry2> Entry
 		{
-			get => _ntry;
-			private set => _ntry = value;
+			get => _entry;
+			private set => _entry = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the Ntry collection is empty.</para>
-		/// </summary>
-		[XmlIgnore]
-		public bool NtrySpecified => Ntry.Count != 0;
-
-		/// <summary>
-		/// <para xml:lang="en">Minimum length: 1.</para>
-		/// <para xml:lang="en">Maximum length: 500.</para>
+		/// Gets further details of the account report.
 		/// </summary>
 		[MinLength(1)]
 		[MaxLength(500)]
 		[XmlElement("AddtlRptInf")]
-		public string AddtlRptInf { get; init; }
+		public string? AdditionalReportInformation { get; init; }
 	}
 }

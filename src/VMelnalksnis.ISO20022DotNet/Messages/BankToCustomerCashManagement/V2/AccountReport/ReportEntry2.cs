@@ -1,5 +1,18 @@
-﻿using System;
-using System.CodeDom.Compiler;
+﻿// Copyright 2021 Valters Melnalksnis
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License in the project root or at
+//
+// https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -7,200 +20,201 @@ using System.Xml.Serialization;
 
 namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.AccountReport
 {
-	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
+	/// <summary>
+	/// Set of elements used to specify an entry in the report.
+	/// </summary>
 	[Serializable]
 	[XmlType("ReportEntry2", Namespace = "urn:iso:std:iso:20022:tech:xsd:camt.052.001.02")]
 	[DebuggerStepThrough]
 	[DesignerCategory("code")]
 	public sealed record ReportEntry2
 	{
+		[XmlIgnore]
+		private Collection<CashBalanceAvailability2> _availability = new();
+
+		[XmlIgnore]
+		private Collection<ChargesInformation6> _charges = new();
+
+		[XmlIgnore]
+		private Collection<TransactionInterest2> _interest = new();
+
+		[XmlIgnore]
+		private Collection<EntryDetails1> _entryDetails = new();
+
 		/// <summary>
+		/// Gets unique reference for the entry.
 		/// <para xml:lang="en">Minimum length: 1.</para>
 		/// <para xml:lang="en">Maximum length: 35.</para>
 		/// </summary>
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("NtryRef")]
-		public string NtryRef { get; init; }
+		public string? EntryReference { get; init; }
 
+		/// <summary>
+		/// Gets amount of money in the cash entry.
+		/// </summary>
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
+		public ActiveOrHistoricCurrencyAndAmount Amount { get; init; } = null!;
 
+		/// <summary>
+		/// Gets a value indicating whether the entry is a credit or a debit entry.
+		/// </summary>
 		[Required]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtInd { get; init; }
-
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		[XmlElement("RvslInd")]
-		public bool RvslIndValue { get; init; }
+		public CreditDebitCode CreditDebitIndicator { get; init; }
 
 		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the RvslInd property is specified.</para>
+		/// Gets a value indicating whether or not the entry is the result of a reversal.
 		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool RvslIndValueSpecified { get; init; }
+		/// <remarks>
+		/// This element should only be present if the entry is the result of a reversal.
+		/// If the <see cref="CreditDebitIndicator"/> is <see cref="CreditDebitCode.CRDT"/> and
+		/// <see cref="ReversalIndicator"/> is Yes, the original operation was a debit entry.
+		/// If the <see cref="CreditDebitIndicator"/> is <see cref="CreditDebitCode.DBIT"/> and
+		/// <see cref="ReversalIndicator"/> is Yes, the original operation was a credit entry.
+		/// </remarks>
+		[XmlElement("RvslInd")]
+		public bool? ReversalIndicator { get; init; }
 
-		[XmlIgnore]
-		public bool? RvslInd
-		{
-			get
-			{
-				if (RvslIndValueSpecified)
-				{
-					return RvslIndValue;
-				}
-
-				return null;
-			}
-			init
-			{
-				RvslIndValue = value.GetValueOrDefault();
-				RvslIndValueSpecified = value.HasValue;
-			}
-		}
-
+		/// <summary>
+		/// Gets status of an entry on the books of the account servicer.
+		/// </summary>
 		[Required]
 		[XmlElement("Sts")]
-		public EntryStatus2Code Sts { get; init; }
-
-		[XmlElement("BookgDt")]
-		public DateAndDateTimeChoice BookgDt { get; init; }
-
-		[XmlElement("ValDt")]
-		public DateAndDateTimeChoice ValDt { get; init; }
+		public EntryStatus2Code Status { get; init; }
 
 		/// <summary>
+		/// Gets date and time when an entry is posted to an account on the account servicer's books.
+		/// </summary>
+		/// <remarks>
+		/// Booking date is the expected booking date, unless the status is booked,
+		/// in which case it is the actual booking date.
+		/// </remarks>
+		[XmlElement("BookgDt")]
+		public DateAndDateTimeChoice? BookingDate { get; init; }
+
+		/// <summary>
+		/// Gets date and time at which assets become available to the account owner in case of a credit entry,
+		/// or cease to be available to the account owner in case of a debit entry.
+		/// </summary>
+		/// <remarks>
+		/// If entry status is pending and value date is present, then the value date refers to an
+		/// expected/requested value date. For entries subject to availability/float and
+		/// for which availability information is provided, the value date must not be used.
+		/// In this case the availability component identifies the number of availability days.
+		/// </remarks>
+		[XmlElement("ValDt")]
+		public DateAndDateTimeChoice? ValueDate { get; init; }
+
+		/// <summary>
+		/// Gets unique reference as assigned by the account servicing institution to unambiguously identify the entry.
 		/// <para xml:lang="en">Minimum length: 1.</para>
 		/// <para xml:lang="en">Maximum length: 35.</para>
 		/// </summary>
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("AcctSvcrRef")]
-		public string AcctSvcrRef { get; init; }
+		public string? AccountServicerReference { get; init; }
 
-		[XmlIgnore] private System.Collections.ObjectModel.Collection<CashBalanceAvailability2> _avlbty;
-
+		/// <summary>
+		/// Gets set of elements used to indicate when the booked amount of money will become available,
+		/// that is can be accessed and starts generating interest.
+		/// </summary>
+		/// <remarks>
+		/// This type of information is used in the US and is linked to particular instruments such as cheques.
+		/// Example: When a cheque is deposited, it will be booked on the deposit day, but the amount of money will
+		/// only be accessible as of the indicated availability day (according to national banking regulations).
+		/// </remarks>
 		[XmlElement("Avlbty")]
-		public System.Collections.ObjectModel.Collection<CashBalanceAvailability2> Avlbty
+		public Collection<CashBalanceAvailability2> Availability
 		{
-			get => _avlbty;
-			private set => _avlbty = value;
+			get => _availability;
+			private set => _availability = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the Avlbty collection is empty.</para>
+		/// Gets set of elements used to fully identify the type of underlying transaction resulting in an entry.
 		/// </summary>
-		[XmlIgnore]
-		public bool AvlbtySpecified => Avlbty.Count != 0;
-
-		/// <summary>
-		/// <para xml:lang="en">Initializes a new instance of the <see cref="ReportEntry2" /> class.</para>
-		/// </summary>
-		public ReportEntry2()
-		{
-			_avlbty = new();
-			_chrgs = new();
-			_intrst = new();
-			_ntryDtls = new();
-		}
-
 		[Required]
 		[XmlElement("BkTxCd")]
-		public BankTransactionCodeStructure4 BkTxCd { get; init; }
+		public BankTransactionCodeStructure4 BankTransactionCode { get; init; } = null!;
 
-		[EditorBrowsable(EditorBrowsableState.Never)]
+		/// <summary>
+		/// Gets a value indicating whether the transaction is exempt from commission.
+		/// </summary>
 		[XmlElement("ComssnWvrInd")]
-		public bool ComssnWvrIndValue { get; init; }
+		public bool? CommissionWaiverIndicator { get; init; }
 
 		/// <summary>
-		/// <para xml:lang="en">Gets or sets a value indicating whether the ComssnWvrInd property is specified.</para>
+		/// Gets a value indicating whether the underlying transaction details are provided through a separate message,
+		/// as in the case of aggregate bookings.
 		/// </summary>
-		[XmlIgnore]
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool ComssnWvrIndValueSpecified { get; init; }
-
-		[XmlIgnore]
-		public bool? ComssnWvrInd
-		{
-			get
-			{
-				if (ComssnWvrIndValueSpecified)
-				{
-					return ComssnWvrIndValue;
-				}
-
-				return null;
-			}
-			init
-			{
-				ComssnWvrIndValue = value.GetValueOrDefault();
-				ComssnWvrIndValueSpecified = value.HasValue;
-			}
-		}
-
 		[XmlElement("AddtlInfInd")]
-		public MessageIdentification2 AddtlInfInd { get; init; }
+		public MessageIdentification2? AdditionalInformationIndicator { get; init; }
 
+		/// <summary>
+		/// Gets set of elements providing information on the original amount.
+		/// </summary>
+		/// <remarks>
+		/// This component (on entry level) should be used when
+		/// a total original batch or aggregate amount has to be provided. If required,
+		/// the individual original amounts can be included in the same component on transaction details level.
+		/// </remarks>
 		[XmlElement("AmtDtls")]
-		public AmountAndCurrencyExchange3 AmtDtls { get; init; }
+		public AmountAndCurrencyExchange3? AmountDetails { get; init; }
 
-		[XmlIgnore] private System.Collections.ObjectModel.Collection<ChargesInformation6> _chrgs;
-
+		/// <summary>
+		/// Gets information on the charges included in the entry amount.
+		/// </summary>
+		/// <remarks>
+		/// This component is used on entry level in case of batch or aggregate bookings.
+		/// </remarks>
 		[XmlElement("Chrgs")]
-		public System.Collections.ObjectModel.Collection<ChargesInformation6> Chrgs
+		public Collection<ChargesInformation6> Charges
 		{
-			get => _chrgs;
-			private set => _chrgs = value;
+			get => _charges;
+			private set => _charges = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the Chrgs collection is empty.</para>
+		/// Gets channel used to technically input the instruction related to the entry.
 		/// </summary>
-		[XmlIgnore]
-		public bool ChrgsSpecified => Chrgs.Count != 0;
-
 		[XmlElement("TechInptChanl")]
-		public TechnicalInputChannel1Choice TechInptChanl { get; init; }
+		public TechnicalInputChannel1Choice? TechnicalInputChannel { get; init; }
 
-		[XmlIgnore] private System.Collections.ObjectModel.Collection<TransactionInterest2> _intrst;
-
+		/// <summary>
+		/// Gets set of elements used to provide details of the interest amount included in the entry amount.
+		/// </summary>
+		/// <remarks>
+		/// This component is used on entry level in the case of batch or aggregate bookings.
+		/// </remarks>
 		[XmlElement("Intrst")]
-		public System.Collections.ObjectModel.Collection<TransactionInterest2> Intrst
+		public Collection<TransactionInterest2> Interest
 		{
-			get => _intrst;
-			private set => _intrst = value;
+			get => _interest;
+			private set => _interest = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the Intrst collection is empty.</para>
+		/// Gets set of elements used to provide details on the entry.
 		/// </summary>
-		[XmlIgnore]
-		public bool IntrstSpecified => Intrst.Count != 0;
-
-		[XmlIgnore] private System.Collections.ObjectModel.Collection<EntryDetails1> _ntryDtls;
-
 		[XmlElement("NtryDtls")]
-		public System.Collections.ObjectModel.Collection<EntryDetails1> NtryDtls
+		public Collection<EntryDetails1> EntryDetails
 		{
-			get => _ntryDtls;
-			private set => _ntryDtls = value;
+			get => _entryDetails;
+			private set => _entryDetails = value;
 		}
 
 		/// <summary>
-		/// <para xml:lang="en">Gets a value indicating whether the NtryDtls collection is empty.</para>
-		/// </summary>
-		[XmlIgnore]
-		public bool NtryDtlsSpecified => NtryDtls.Count != 0;
-
-		/// <summary>
+		/// Gets further details of the entry.
 		/// <para xml:lang="en">Minimum length: 1.</para>
 		/// <para xml:lang="en">Maximum length: 500.</para>
 		/// </summary>
 		[MinLength(1)]
 		[MaxLength(500)]
 		[XmlElement("AddtlNtryInf")]
-		public string AddtlNtryInf { get; init; }
+		public string? AdditionalEntryInformation { get; init; }
 	}
 }
