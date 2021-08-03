@@ -30,7 +30,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Messages\BankToCustomerCashManagement\V2" />
+      <Folder Include="MessageSets\BankToCustomerCashManagement\V2" />
     </ItemGroup>
 
     <ItemGroup>
