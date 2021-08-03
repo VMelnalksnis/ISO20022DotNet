@@ -24,7 +24,7 @@
 
         <Major>0</Major>
         <Minor>1</Minor>
-        <Revision>0</Revision>
+        <Revision>1</Revision>
 
         <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
 
