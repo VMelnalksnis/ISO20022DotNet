@@ -14,13 +14,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record ImpliedCurrencyAmountRangeChoice
 	{
 		[XmlElement("FrAmt")]
-		public AmountRangeBoundary1 FrAmt { get; set; }
+		public AmountRangeBoundary1 FrAmt { get; init; }
 
 		[XmlElement("ToAmt")]
-		public AmountRangeBoundary1 ToAmt { get; set; }
+		public AmountRangeBoundary1 ToAmt { get; init; }
 
 		[XmlElement("FrToAmt")]
-		public FromToAmountRange FrToAmt { get; set; }
+		public FromToAmountRange FrToAmt { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum inclusive value: 0.</para>
@@ -29,14 +29,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("EQAmt")]
-		public decimal EQAmtValue { get; set; }
+		public decimal EQAmtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the EQAmt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool EQAmtValueSpecified { get; set; }
+		public bool EQAmtValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum inclusive value: 0.</para>
@@ -55,7 +55,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				EQAmtValue = value.GetValueOrDefault();
 				EQAmtValueSpecified = value.HasValue;
@@ -69,14 +69,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("NEQAmt")]
-		public decimal NEQAmtValue { get; set; }
+		public decimal NEQAmtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the NEQAmt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool NEQAmtValueSpecified { get; set; }
+		public bool NEQAmtValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum inclusive value: 0.</para>
@@ -95,7 +95,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				NEQAmtValue = value.GetValueOrDefault();
 				NEQAmtValueSpecified = value.HasValue;

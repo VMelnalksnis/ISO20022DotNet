@@ -20,10 +20,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[RegularExpression("[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}")]
 		[XmlElement("BIC")]
-		public string BIC { get; set; }
+		public string BIC { get; init; }
 
 		[XmlElement("ClrSysMmbId")]
-		public ClearingSystemMemberIdentification2 ClrSysMmbId { get; set; }
+		public ClearingSystemMemberIdentification2 ClrSysMmbId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -32,12 +32,12 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("Nm")]
-		public string Nm { get; set; }
+		public string Nm { get; init; }
 
 		[XmlElement("PstlAdr")]
-		public PostalAddress6 PstlAdr { get; set; }
+		public PostalAddress6 PstlAdr { get; init; }
 
 		[XmlElement("Othr")]
-		public GenericFinancialIdentification1 Othr { get; set; }
+		public GenericFinancialIdentification1 Othr { get; init; }
 	}
 }

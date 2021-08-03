@@ -15,22 +15,22 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record ChargesInformation6
 	{
 		[XmlElement("TtlChrgsAndTaxAmt")]
-		public ActiveOrHistoricCurrencyAndAmount TtlChrgsAndTaxAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount TtlChrgsAndTaxAmt { get; init; }
 
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtIndValue { get; set; }
+		public CreditDebitCode CdtDbtIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the CdtDbtInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CdtDbtIndValueSpecified { get; set; }
+		public bool CdtDbtIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public CreditDebitCode? CdtDbtInd
@@ -44,7 +44,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				CdtDbtIndValue = value.GetValueOrDefault();
 				CdtDbtIndValueSpecified = value.HasValue;
@@ -52,7 +52,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("Tp")]
-		public ChargeType2Choice Tp { get; set; }
+		public ChargeType2Choice Tp { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 10.</para>
@@ -60,14 +60,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Rate")]
-		public decimal RateValue { get; set; }
+		public decimal RateValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Rate property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool RateValueSpecified { get; set; }
+		public bool RateValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 10.</para>
@@ -85,7 +85,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				RateValue = value.GetValueOrDefault();
 				RateValueSpecified = value.HasValue;
@@ -94,14 +94,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Br")]
-		public ChargeBearerType1Code BrValue { get; set; }
+		public ChargeBearerType1Code BrValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Br property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool BrValueSpecified { get; set; }
+		public bool BrValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public ChargeBearerType1Code? Br
@@ -115,7 +115,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				BrValue = value.GetValueOrDefault();
 				BrValueSpecified = value.HasValue;
@@ -123,9 +123,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("Pty")]
-		public BranchAndFinancialInstitutionIdentification4 Pty { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 Pty { get; init; }
 
 		[XmlElement("Tax")]
-		public TaxCharges2 Tax { get; set; }
+		public TaxCharges2 Tax { get; init; }
 	}
 }

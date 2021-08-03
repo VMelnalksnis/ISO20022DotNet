@@ -16,18 +16,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtIndValue { get; set; }
+		public CreditDebitCode CdtDbtIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the CdtDbtInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CdtDbtIndValueSpecified { get; set; }
+		public bool CdtDbtIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public CreditDebitCode? CdtDbtInd
@@ -41,7 +41,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				CdtDbtIndValue = value.GetValueOrDefault();
 				CdtDbtIndValueSpecified = value.HasValue;
@@ -55,7 +55,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(4)]
 		[XmlElement("Rsn")]
-		public string Rsn { get; set; }
+		public string Rsn { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -64,6 +64,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("AddtlInf")]
-		public string AddtlInf { get; set; }
+		public string AddtlInf { get; init; }
 	}
 }

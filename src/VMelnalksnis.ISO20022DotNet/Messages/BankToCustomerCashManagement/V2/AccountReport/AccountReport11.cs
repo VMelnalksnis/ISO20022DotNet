@@ -23,7 +23,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("Id")]
-		public string Id { get; set; }
+		public string Id { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
@@ -31,14 +31,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("ElctrncSeqNb")]
-		public decimal ElctrncSeqNbValue { get; set; }
+		public decimal ElctrncSeqNbValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the ElctrncSeqNb property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool ElctrncSeqNbValueSpecified { get; set; }
+		public bool ElctrncSeqNbValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
@@ -56,7 +56,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				ElctrncSeqNbValue = value.GetValueOrDefault();
 				ElctrncSeqNbValueSpecified = value.HasValue;
@@ -69,14 +69,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("LglSeqNb")]
-		public decimal LglSeqNbValue { get; set; }
+		public decimal LglSeqNbValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the LglSeqNb property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool LglSeqNbValueSpecified { get; set; }
+		public bool LglSeqNbValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
@@ -94,7 +94,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				LglSeqNbValue = value.GetValueOrDefault();
 				LglSeqNbValueSpecified = value.HasValue;
@@ -103,21 +103,21 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 		[Required]
 		[XmlElement("CreDtTm", DataType = "dateTime")]
-		public DateTime CreDtTm { get; set; }
+		public DateTime CreDtTm { get; init; }
 
 		[XmlElement("FrToDt")]
-		public DateTimePeriodDetails FrToDt { get; set; }
+		public DateTimePeriodDetails FrToDt { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("CpyDplctInd")]
-		public CopyDuplicate1Code CpyDplctIndValue { get; set; }
+		public CopyDuplicate1Code CpyDplctIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the CpyDplctInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CpyDplctIndValueSpecified { get; set; }
+		public bool CpyDplctIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public CopyDuplicate1Code? CpyDplctInd
@@ -131,7 +131,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				CpyDplctIndValue = value.GetValueOrDefault();
 				CpyDplctIndValueSpecified = value.HasValue;
@@ -139,14 +139,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("RptgSrc")]
-		public ReportingSource1Choice RptgSrc { get; set; }
+		public ReportingSource1Choice RptgSrc { get; init; }
 
 		[Required]
 		[XmlElement("Acct")]
-		public CashAccount20 Acct { get; set; }
+		public CashAccount20 Acct { get; init; }
 
 		[XmlElement("RltdAcct")]
-		public CashAccount16 RltdAcct { get; set; }
+		public CashAccount16 RltdAcct { get; init; }
 
 		[XmlIgnore] private Collection<AccountInterest2> _intrst;
 
@@ -189,7 +189,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		public bool BalSpecified => Bal.Count != 0;
 
 		[XmlElement("TxsSummry")]
-		public TotalTransactions2 TxsSummry { get; set; }
+		public TotalTransactions2 TxsSummry { get; init; }
 
 		[XmlIgnore] private Collection<ReportEntry2> _ntry;
 
@@ -213,6 +213,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(500)]
 		[XmlElement("AddtlRptInf")]
-		public string AddtlRptInf { get; set; }
+		public string AddtlRptInf { get; init; }
 	}
 }

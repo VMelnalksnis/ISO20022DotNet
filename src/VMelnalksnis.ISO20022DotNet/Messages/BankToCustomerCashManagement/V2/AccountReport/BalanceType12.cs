@@ -16,9 +16,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("CdOrPrtry")]
-		public BalanceType5Choice CdOrPrtry { get; set; }
+		public BalanceType5Choice CdOrPrtry { get; init; }
 
 		[XmlElement("SubTp")]
-		public BalanceSubType1Choice SubTp { get; set; }
+		public BalanceSubType1Choice SubTp { get; init; }
 	}
 }

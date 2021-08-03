@@ -16,7 +16,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("GrpHdr")]
-		public GroupHeader42 GrpHdr { get; set; }
+		public GroupHeader42 GrpHdr { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<AccountReport11> _rpt;
 

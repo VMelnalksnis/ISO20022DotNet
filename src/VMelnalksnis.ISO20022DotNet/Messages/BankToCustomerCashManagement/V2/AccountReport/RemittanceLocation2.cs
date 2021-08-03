@@ -21,18 +21,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("RmtId")]
-		public string RmtId { get; set; }
+		public string RmtId { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("RmtLctnMtd")]
-		public RemittanceLocationMethod2Code RmtLctnMtdValue { get; set; }
+		public RemittanceLocationMethod2Code RmtLctnMtdValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the RmtLctnMtd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool RmtLctnMtdValueSpecified { get; set; }
+		public bool RmtLctnMtdValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public RemittanceLocationMethod2Code? RmtLctnMtd
@@ -46,7 +46,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				RmtLctnMtdValue = value.GetValueOrDefault();
 				RmtLctnMtdValueSpecified = value.HasValue;
@@ -60,9 +60,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(2048)]
 		[XmlElement("RmtLctnElctrncAdr")]
-		public string RmtLctnElctrncAdr { get; set; }
+		public string RmtLctnElctrncAdr { get; init; }
 
 		[XmlElement("RmtLctnPstlAdr")]
-		public NameAndAddress10 RmtLctnPstlAdr { get; set; }
+		public NameAndAddress10 RmtLctnPstlAdr { get; init; }
 	}
 }

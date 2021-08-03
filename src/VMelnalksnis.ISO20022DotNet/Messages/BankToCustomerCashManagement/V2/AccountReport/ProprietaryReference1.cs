@@ -22,7 +22,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("Tp")]
-		public string Tp { get; set; }
+		public string Tp { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -32,6 +32,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("Ref")]
-		public string Ref { get; set; }
+		public string Ref { get; init; }
 	}
 }

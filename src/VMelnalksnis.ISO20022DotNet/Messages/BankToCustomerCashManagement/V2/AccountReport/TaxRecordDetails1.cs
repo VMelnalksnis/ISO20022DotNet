@@ -15,10 +15,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TaxRecordDetails1
 	{
 		[XmlElement("Prd")]
-		public TaxPeriod1 Prd { get; set; }
+		public TaxPeriod1 Prd { get; init; }
 
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 	}
 }

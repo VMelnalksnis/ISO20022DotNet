@@ -15,10 +15,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TaxInformation3
 	{
 		[XmlElement("Cdtr")]
-		public TaxParty1 Cdtr { get; set; }
+		public TaxParty1 Cdtr { get; init; }
 
 		[XmlElement("Dbtr")]
-		public TaxParty2 Dbtr { get; set; }
+		public TaxParty2 Dbtr { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -27,7 +27,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("AdmstnZn")]
-		public string AdmstnZn { get; set; }
+		public string AdmstnZn { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -36,7 +36,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("RefNb")]
-		public string RefNb { get; set; }
+		public string RefNb { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -45,24 +45,24 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Mtd")]
-		public string Mtd { get; set; }
+		public string Mtd { get; init; }
 
 		[XmlElement("TtlTaxblBaseAmt")]
-		public ActiveOrHistoricCurrencyAndAmount TtlTaxblBaseAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount TtlTaxblBaseAmt { get; init; }
 
 		[XmlElement("TtlTaxAmt")]
-		public ActiveOrHistoricCurrencyAndAmount TtlTaxAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount TtlTaxAmt { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Dt", DataType = "date")]
-		public DateTime DtValue { get; set; }
+		public DateTime DtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Dt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool DtValueSpecified { get; set; }
+		public bool DtValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? Dt
@@ -76,7 +76,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				DtValue = value.GetValueOrDefault();
 				DtValueSpecified = value.HasValue;
@@ -89,14 +89,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("SeqNb")]
-		public decimal SeqNbValue { get; set; }
+		public decimal SeqNbValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the SeqNb property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool SeqNbValueSpecified { get; set; }
+		public bool SeqNbValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 0.</para>
@@ -114,7 +114,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				SeqNbValue = value.GetValueOrDefault();
 				SeqNbValueSpecified = value.HasValue;

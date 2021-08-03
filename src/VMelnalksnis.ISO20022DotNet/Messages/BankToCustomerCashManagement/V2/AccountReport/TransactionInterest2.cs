@@ -16,14 +16,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[Required]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtInd { get; set; }
+		public CreditDebitCode CdtDbtInd { get; init; }
 
 		[XmlElement("Tp")]
-		public InterestType1Choice Tp { get; set; }
+		public InterestType1Choice Tp { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<Rate3> _rate;
 
@@ -49,7 +49,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("FrToDt")]
-		public DateTimePeriodDetails FrToDt { get; set; }
+		public DateTimePeriodDetails FrToDt { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -58,6 +58,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Rsn")]
-		public string Rsn { get; set; }
+		public string Rsn { get; init; }
 	}
 }

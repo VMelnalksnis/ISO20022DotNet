@@ -19,7 +19,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[RegularExpression("[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}")]
 		[XmlElement("BICOrBEI")]
-		public string BICOrBEI { get; set; }
+		public string BICOrBEI { get; init; }
 
 		[XmlIgnore]
 		private System.Collections.ObjectModel.Collection<GenericOrganisationIdentification1> _othr;

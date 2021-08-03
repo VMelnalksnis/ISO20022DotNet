@@ -14,9 +14,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record BankTransactionCodeStructure4
 	{
 		[XmlElement("Domn")]
-		public BankTransactionCodeStructure5 Domn { get; set; }
+		public BankTransactionCodeStructure5 Domn { get; init; }
 
 		[XmlElement("Prtry")]
-		public ProprietaryBankTransactionCodeStructure1 Prtry { get; set; }
+		public ProprietaryBankTransactionCodeStructure1 Prtry { get; init; }
 	}
 }

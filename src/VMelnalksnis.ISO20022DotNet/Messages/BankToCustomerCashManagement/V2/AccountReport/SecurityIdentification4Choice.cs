@@ -19,9 +19,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[RegularExpression("[A-Z0-9]{12,12}")]
 		[XmlElement("ISIN")]
-		public string ISIN { get; set; }
+		public string ISIN { get; init; }
 
 		[XmlElement("Prtry")]
-		public AlternateSecurityIdentification2 Prtry { get; set; }
+		public AlternateSecurityIdentification2 Prtry { get; init; }
 	}
 }

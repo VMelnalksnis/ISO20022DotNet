@@ -21,26 +21,26 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("NtryRef")]
-		public string NtryRef { get; set; }
+		public string NtryRef { get; init; }
 
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[Required]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtInd { get; set; }
+		public CreditDebitCode CdtDbtInd { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("RvslInd")]
-		public bool RvslIndValue { get; set; }
+		public bool RvslIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the RvslInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool RvslIndValueSpecified { get; set; }
+		public bool RvslIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public bool? RvslInd
@@ -54,7 +54,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				RvslIndValue = value.GetValueOrDefault();
 				RvslIndValueSpecified = value.HasValue;
@@ -63,13 +63,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 		[Required]
 		[XmlElement("Sts")]
-		public EntryStatus2Code Sts { get; set; }
+		public EntryStatus2Code Sts { get; init; }
 
 		[XmlElement("BookgDt")]
-		public DateAndDateTimeChoice BookgDt { get; set; }
+		public DateAndDateTimeChoice BookgDt { get; init; }
 
 		[XmlElement("ValDt")]
-		public DateAndDateTimeChoice ValDt { get; set; }
+		public DateAndDateTimeChoice ValDt { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -78,7 +78,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("AcctSvcrRef")]
-		public string AcctSvcrRef { get; set; }
+		public string AcctSvcrRef { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<CashBalanceAvailability2> _avlbty;
 
@@ -108,18 +108,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 		[Required]
 		[XmlElement("BkTxCd")]
-		public BankTransactionCodeStructure4 BkTxCd { get; set; }
+		public BankTransactionCodeStructure4 BkTxCd { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("ComssnWvrInd")]
-		public bool ComssnWvrIndValue { get; set; }
+		public bool ComssnWvrIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the ComssnWvrInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool ComssnWvrIndValueSpecified { get; set; }
+		public bool ComssnWvrIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public bool? ComssnWvrInd
@@ -133,7 +133,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				ComssnWvrIndValue = value.GetValueOrDefault();
 				ComssnWvrIndValueSpecified = value.HasValue;
@@ -141,10 +141,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("AddtlInfInd")]
-		public MessageIdentification2 AddtlInfInd { get; set; }
+		public MessageIdentification2 AddtlInfInd { get; init; }
 
 		[XmlElement("AmtDtls")]
-		public AmountAndCurrencyExchange3 AmtDtls { get; set; }
+		public AmountAndCurrencyExchange3 AmtDtls { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<ChargesInformation6> _chrgs;
 
@@ -162,7 +162,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		public bool ChrgsSpecified => Chrgs.Count != 0;
 
 		[XmlElement("TechInptChanl")]
-		public TechnicalInputChannel1Choice TechInptChanl { get; set; }
+		public TechnicalInputChannel1Choice TechInptChanl { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<TransactionInterest2> _intrst;
 
@@ -201,6 +201,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(500)]
 		[XmlElement("AddtlNtryInf")]
-		public string AddtlNtryInf { get; set; }
+		public string AddtlNtryInf { get; init; }
 	}
 }

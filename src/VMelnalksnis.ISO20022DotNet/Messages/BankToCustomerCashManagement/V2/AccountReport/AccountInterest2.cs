@@ -16,7 +16,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record AccountInterest2
 	{
 		[XmlElement("Tp")]
-		public InterestType1Choice Tp { get; set; }
+		public InterestType1Choice Tp { get; init; }
 
 		[XmlIgnore]
 		private Collection<Rate3> _rate = new();
@@ -43,7 +43,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("FrToDt")]
-		public DateTimePeriodDetails FrToDt { get; set; }
+		public DateTimePeriodDetails FrToDt { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -52,6 +52,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Rsn")]
-		public string Rsn { get; set; }
+		public string Rsn { get; init; }
 	}
 }

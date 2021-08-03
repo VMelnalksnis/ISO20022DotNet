@@ -14,13 +14,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TotalTransactions2
 	{
 		[XmlElement("TtlNtries")]
-		public NumberAndSumOfTransactions2 TtlNtries { get; set; }
+		public NumberAndSumOfTransactions2 TtlNtries { get; init; }
 
 		[XmlElement("TtlCdtNtries")]
-		public NumberAndSumOfTransactions1 TtlCdtNtries { get; set; }
+		public NumberAndSumOfTransactions1 TtlCdtNtries { get; init; }
 
 		[XmlElement("TtlDbtNtries")]
-		public NumberAndSumOfTransactions1 TtlDbtNtries { get; set; }
+		public NumberAndSumOfTransactions1 TtlDbtNtries { get; init; }
 
 		[XmlIgnore]
 		private System.Collections.ObjectModel.Collection<TotalsPerBankTransactionCode2> _ttlNtriesPerBkTxCd;

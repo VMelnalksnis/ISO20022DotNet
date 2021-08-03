@@ -16,7 +16,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record ClearingSystemMemberIdentification2
 	{
 		[XmlElement("ClrSysId")]
-		public ClearingSystemIdentification2Choice ClrSysId { get; set; }
+		public ClearingSystemIdentification2Choice ClrSysId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -26,6 +26,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("MmbId")]
-		public string MmbId { get; set; }
+		public string MmbId { get; init; }
 	}
 }

@@ -15,14 +15,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Dt", DataType = "date")]
-		public DateTime DtValue { get; set; }
+		public DateTime DtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Dt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool DtValueSpecified { get; set; }
+		public bool DtValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? Dt
@@ -36,7 +36,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				DtValue = value.GetValueOrDefault();
 				DtValueSpecified = value.HasValue;
@@ -45,14 +45,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("DtTm", DataType = "dateTime")]
-		public DateTime DtTmValue { get; set; }
+		public DateTime DtTmValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the DtTm property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool DtTmValueSpecified { get; set; }
+		public bool DtTmValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? DtTm
@@ -66,7 +66,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				DtTmValue = value.GetValueOrDefault();
 				DtTmValueSpecified = value.HasValue;

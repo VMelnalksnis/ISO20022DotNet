@@ -16,17 +16,17 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Id")]
-		public AccountIdentification4Choice Id { get; set; }
+		public AccountIdentification4Choice Id { get; init; }
 
 		[XmlElement("Tp")]
-		public CashAccountType2 Tp { get; set; }
+		public CashAccountType2 Tp { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{3,3}.</para>
 		/// </summary>
 		[RegularExpression("[A-Z]{3,3}")]
 		[XmlElement("Ccy")]
-		public string Ccy { get; set; }
+		public string Ccy { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -35,6 +35,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(70)]
 		[XmlElement("Nm")]
-		public string Nm { get; set; }
+		public string Nm { get; init; }
 	}
 }

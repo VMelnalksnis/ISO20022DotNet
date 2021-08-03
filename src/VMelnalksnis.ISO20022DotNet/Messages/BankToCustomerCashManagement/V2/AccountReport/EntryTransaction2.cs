@@ -15,10 +15,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record EntryTransaction2
 	{
 		[XmlElement("Refs")]
-		public TransactionReferences2 Refs { get; set; }
+		public TransactionReferences2 Refs { get; init; }
 
 		[XmlElement("AmtDtls")]
-		public AmountAndCurrencyExchange3 AmtDtls { get; set; }
+		public AmountAndCurrencyExchange3 AmtDtls { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<CashBalanceAvailability2> _avlbty;
 
@@ -48,7 +48,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("BkTxCd")]
-		public BankTransactionCodeStructure4 BkTxCd { get; set; }
+		public BankTransactionCodeStructure4 BkTxCd { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<ChargesInformation6> _chrgs;
 
@@ -81,13 +81,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		public bool IntrstSpecified => Intrst.Count != 0;
 
 		[XmlElement("RltdPties")]
-		public TransactionParty2 RltdPties { get; set; }
+		public TransactionParty2 RltdPties { get; init; }
 
 		[XmlElement("RltdAgts")]
-		public TransactionAgents2 RltdAgts { get; set; }
+		public TransactionAgents2 RltdAgts { get; init; }
 
 		[XmlElement("Purp")]
-		public Purpose2Choice Purp { get; set; }
+		public Purpose2Choice Purp { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<RemittanceLocation2> _rltdRmtInf;
 
@@ -105,13 +105,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		public bool RltdRmtInfSpecified => RltdRmtInf.Count != 0;
 
 		[XmlElement("RmtInf")]
-		public RemittanceInformation5 RmtInf { get; set; }
+		public RemittanceInformation5 RmtInf { get; init; }
 
 		[XmlElement("RltdDts")]
-		public TransactionDates2 RltdDts { get; set; }
+		public TransactionDates2 RltdDts { get; init; }
 
 		[XmlElement("RltdPric")]
-		public TransactionPrice2Choice RltdPric { get; set; }
+		public TransactionPrice2Choice RltdPric { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<TransactionQuantities1Choice> _rltdQties;
 
@@ -129,19 +129,19 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		public bool RltdQtiesSpecified => RltdQties.Count != 0;
 
 		[XmlElement("FinInstrmId")]
-		public SecurityIdentification4Choice FinInstrmId { get; set; }
+		public SecurityIdentification4Choice FinInstrmId { get; init; }
 
 		[XmlElement("Tax")]
-		public TaxInformation3 Tax { get; set; }
+		public TaxInformation3 Tax { get; init; }
 
 		[XmlElement("RtrInf")]
-		public ReturnReasonInformation10 RtrInf { get; set; }
+		public ReturnReasonInformation10 RtrInf { get; init; }
 
 		[XmlElement("CorpActn")]
-		public CorporateAction1 CorpActn { get; set; }
+		public CorporateAction1 CorpActn { get; init; }
 
 		[XmlElement("SfkpgAcct")]
-		public CashAccount16 SfkpgAcct { get; set; }
+		public CashAccount16 SfkpgAcct { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -150,6 +150,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(500)]
 		[XmlElement("AddtlTxInf")]
-		public string AddtlTxInf { get; set; }
+		public string AddtlTxInf { get; init; }
 	}
 }

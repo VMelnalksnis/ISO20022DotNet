@@ -22,10 +22,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(4)]
 		[Required]
 		[XmlElement("Cd")]
-		public string Cd { get; set; }
+		public string Cd { get; init; }
 
 		[Required]
 		[XmlElement("Fmly")]
-		public BankTransactionCodeStructure6 Fmly { get; set; }
+		public BankTransactionCodeStructure6 Fmly { get; init; }
 	}
 }

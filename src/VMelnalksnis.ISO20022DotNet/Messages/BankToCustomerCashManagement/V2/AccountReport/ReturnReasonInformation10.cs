@@ -15,13 +15,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record ReturnReasonInformation10
 	{
 		[XmlElement("OrgnlBkTxCd")]
-		public BankTransactionCodeStructure4 OrgnlBkTxCd { get; set; }
+		public BankTransactionCodeStructure4 OrgnlBkTxCd { get; init; }
 
 		[XmlElement("Orgtr")]
-		public PartyIdentification32 Orgtr { get; set; }
+		public PartyIdentification32 Orgtr { get; init; }
 
 		[XmlElement("Rsn")]
-		public ReturnReason5Choice Rsn { get; set; }
+		public ReturnReason5Choice Rsn { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<string> _addtlInf;
 

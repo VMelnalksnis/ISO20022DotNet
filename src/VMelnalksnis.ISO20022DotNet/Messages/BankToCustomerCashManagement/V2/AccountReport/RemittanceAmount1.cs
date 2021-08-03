@@ -14,16 +14,16 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record RemittanceAmount1
 	{
 		[XmlElement("DuePyblAmt")]
-		public ActiveOrHistoricCurrencyAndAmount DuePyblAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount DuePyblAmt { get; init; }
 
 		[XmlElement("DscntApldAmt")]
-		public ActiveOrHistoricCurrencyAndAmount DscntApldAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount DscntApldAmt { get; init; }
 
 		[XmlElement("CdtNoteAmt")]
-		public ActiveOrHistoricCurrencyAndAmount CdtNoteAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount CdtNoteAmt { get; init; }
 
 		[XmlElement("TaxAmt")]
-		public ActiveOrHistoricCurrencyAndAmount TaxAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount TaxAmt { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<DocumentAdjustment1> _adjstmntAmtAndRsn;
 
@@ -49,6 +49,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("RmtdAmt")]
-		public ActiveOrHistoricCurrencyAndAmount RmtdAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount RmtdAmt { get; init; }
 	}
 }

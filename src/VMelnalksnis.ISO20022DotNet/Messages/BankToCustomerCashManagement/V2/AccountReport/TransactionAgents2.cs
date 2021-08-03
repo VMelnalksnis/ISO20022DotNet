@@ -14,31 +14,31 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TransactionAgents2
 	{
 		[XmlElement("DbtrAgt")]
-		public BranchAndFinancialInstitutionIdentification4 DbtrAgt { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 DbtrAgt { get; init; }
 
 		[XmlElement("CdtrAgt")]
-		public BranchAndFinancialInstitutionIdentification4 CdtrAgt { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 CdtrAgt { get; init; }
 
 		[XmlElement("IntrmyAgt1")]
-		public BranchAndFinancialInstitutionIdentification4 IntrmyAgt1 { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 IntrmyAgt1 { get; init; }
 
 		[XmlElement("IntrmyAgt2")]
-		public BranchAndFinancialInstitutionIdentification4 IntrmyAgt2 { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 IntrmyAgt2 { get; init; }
 
 		[XmlElement("IntrmyAgt3")]
-		public BranchAndFinancialInstitutionIdentification4 IntrmyAgt3 { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 IntrmyAgt3 { get; init; }
 
 		[XmlElement("RcvgAgt")]
-		public BranchAndFinancialInstitutionIdentification4 RcvgAgt { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 RcvgAgt { get; init; }
 
 		[XmlElement("DlvrgAgt")]
-		public BranchAndFinancialInstitutionIdentification4 DlvrgAgt { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 DlvrgAgt { get; init; }
 
 		[XmlElement("IssgAgt")]
-		public BranchAndFinancialInstitutionIdentification4 IssgAgt { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 IssgAgt { get; init; }
 
 		[XmlElement("SttlmPlc")]
-		public BranchAndFinancialInstitutionIdentification4 SttlmPlc { get; set; }
+		public BranchAndFinancialInstitutionIdentification4 SttlmPlc { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<ProprietaryAgent2> _prtry;
 

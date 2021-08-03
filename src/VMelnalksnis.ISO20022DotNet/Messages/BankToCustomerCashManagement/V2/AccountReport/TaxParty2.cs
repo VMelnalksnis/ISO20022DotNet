@@ -21,7 +21,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("TaxId")]
-		public string TaxId { get; set; }
+		public string TaxId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -30,7 +30,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("RegnId")]
-		public string RegnId { get; set; }
+		public string RegnId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -39,9 +39,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("TaxTp")]
-		public string TaxTp { get; set; }
+		public string TaxTp { get; init; }
 
 		[XmlElement("Authstn")]
-		public TaxAuthorisation1 Authstn { get; set; }
+		public TaxAuthorisation1 Authstn { get; init; }
 	}
 }

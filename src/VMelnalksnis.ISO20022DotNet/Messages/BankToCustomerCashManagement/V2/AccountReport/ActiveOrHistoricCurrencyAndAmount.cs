@@ -22,7 +22,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// <para xml:lang="en">Total number of digits: 18.</para>
 		/// </summary>
 		[XmlText]
-		public decimal Value { get; set; }
+		public decimal Value { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{3,3}.</para>
@@ -30,6 +30,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[RegularExpression("[A-Z]{3,3}")]
 		[Required]
 		[XmlAttribute("Ccy")]
-		public string Ccy { get; set; }
+		public string Ccy { get; init; }
 	}
 }

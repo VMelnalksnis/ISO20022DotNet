@@ -21,7 +21,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Titl")]
-		public string Titl { get; set; }
+		public string Titl { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -30,6 +30,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("Nm")]
-		public string Nm { get; set; }
+		public string Nm { get; init; }
 	}
 }

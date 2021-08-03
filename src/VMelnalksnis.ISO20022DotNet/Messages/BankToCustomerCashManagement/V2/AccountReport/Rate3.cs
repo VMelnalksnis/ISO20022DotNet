@@ -16,9 +16,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Tp")]
-		public RateType4Choice Tp { get; set; }
+		public RateType4Choice Tp { get; init; }
 
 		[XmlElement("VldtyRg")]
-		public CurrencyAndAmountRange2 VldtyRg { get; set; }
+		public CurrencyAndAmountRange2 VldtyRg { get; init; }
 	}
 }

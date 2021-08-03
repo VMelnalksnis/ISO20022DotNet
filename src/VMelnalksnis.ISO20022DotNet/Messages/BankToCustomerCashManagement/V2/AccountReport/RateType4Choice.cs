@@ -20,14 +20,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Pctg")]
-		public decimal PctgValue { get; set; }
+		public decimal PctgValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Pctg property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool PctgValueSpecified { get; set; }
+		public bool PctgValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 10.</para>
@@ -45,7 +45,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				PctgValue = value.GetValueOrDefault();
 				PctgValueSpecified = value.HasValue;
@@ -59,6 +59,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Othr")]
-		public string Othr { get; set; }
+		public string Othr { get; init; }
 	}
 }

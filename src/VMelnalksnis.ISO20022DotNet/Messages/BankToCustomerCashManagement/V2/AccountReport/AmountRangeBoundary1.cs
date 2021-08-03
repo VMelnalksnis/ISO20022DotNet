@@ -21,10 +21,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[Required]
 		[XmlElement("BdryAmt")]
-		public decimal BdryAmt { get; set; }
+		public decimal BdryAmt { get; init; }
 
 		[Required]
 		[XmlElement("Incl")]
-		public bool Incl { get; set; }
+		public bool Incl { get; init; }
 	}
 }

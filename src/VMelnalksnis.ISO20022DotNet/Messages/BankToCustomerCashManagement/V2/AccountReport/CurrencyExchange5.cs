@@ -20,21 +20,21 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[RegularExpression("[A-Z]{3,3}")]
 		[Required]
 		[XmlElement("SrcCcy")]
-		public string SrcCcy { get; set; }
+		public string SrcCcy { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{3,3}.</para>
 		/// </summary>
 		[RegularExpression("[A-Z]{3,3}")]
 		[XmlElement("TrgtCcy")]
-		public string TrgtCcy { get; set; }
+		public string TrgtCcy { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{3,3}.</para>
 		/// </summary>
 		[RegularExpression("[A-Z]{3,3}")]
 		[XmlElement("UnitCcy")]
-		public string UnitCcy { get; set; }
+		public string UnitCcy { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 10.</para>
@@ -42,7 +42,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[Required]
 		[XmlElement("XchgRate")]
-		public decimal XchgRate { get; set; }
+		public decimal XchgRate { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -51,18 +51,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("CtrctId")]
-		public string CtrctId { get; set; }
+		public string CtrctId { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("QtnDt", DataType = "dateTime")]
-		public DateTime QtnDtValue { get; set; }
+		public DateTime QtnDtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the QtnDt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool QtnDtValueSpecified { get; set; }
+		public bool QtnDtValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? QtnDt
@@ -76,7 +76,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				QtnDtValue = value.GetValueOrDefault();
 				QtnDtValueSpecified = value.HasValue;

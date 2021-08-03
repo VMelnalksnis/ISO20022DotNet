@@ -15,14 +15,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Yr", DataType = "date")]
-		public DateTime YrValue { get; set; }
+		public DateTime YrValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Yr property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool YrValueSpecified { get; set; }
+		public bool YrValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? Yr
@@ -36,7 +36,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				YrValue = value.GetValueOrDefault();
 				YrValueSpecified = value.HasValue;
@@ -45,14 +45,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Tp")]
-		public TaxRecordPeriod1Code TpValue { get; set; }
+		public TaxRecordPeriod1Code TpValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Tp property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool TpValueSpecified { get; set; }
+		public bool TpValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public TaxRecordPeriod1Code? Tp
@@ -66,7 +66,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				TpValue = value.GetValueOrDefault();
 				TpValueSpecified = value.HasValue;
@@ -74,6 +74,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("FrToDt")]
-		public DatePeriodDetails FrToDt { get; set; }
+		public DatePeriodDetails FrToDt { get; init; }
 	}
 }

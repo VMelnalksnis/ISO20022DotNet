@@ -15,7 +15,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record ReferredDocumentInformation3
 	{
 		[XmlElement("Tp")]
-		public ReferredDocumentType2 Tp { get; set; }
+		public ReferredDocumentType2 Tp { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -24,18 +24,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Nb")]
-		public string Nb { get; set; }
+		public string Nb { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("RltdDt", DataType = "date")]
-		public DateTime RltdDtValue { get; set; }
+		public DateTime RltdDtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the RltdDt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool RltdDtValueSpecified { get; set; }
+		public bool RltdDtValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? RltdDt
@@ -49,7 +49,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				RltdDtValue = value.GetValueOrDefault();
 				RltdDtValueSpecified = value.HasValue;

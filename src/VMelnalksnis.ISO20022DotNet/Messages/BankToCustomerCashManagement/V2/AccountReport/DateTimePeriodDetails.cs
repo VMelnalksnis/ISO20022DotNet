@@ -16,10 +16,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("FrDtTm", DataType = "dateTime")]
-		public DateTime FrDtTm { get; set; }
+		public DateTime FrDtTm { get; init; }
 
 		[Required]
 		[XmlElement("ToDtTm", DataType = "dateTime")]
-		public DateTime ToDtTm { get; set; }
+		public DateTime ToDtTm { get; init; }
 	}
 }

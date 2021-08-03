@@ -16,7 +16,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("BirthDt", DataType = "date")]
-		public DateTime BirthDt { get; set; }
+		public DateTime BirthDt { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -25,7 +25,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("PrvcOfBirth")]
-		public string PrvcOfBirth { get; set; }
+		public string PrvcOfBirth { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -35,7 +35,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("CityOfBirth")]
-		public string CityOfBirth { get; set; }
+		public string CityOfBirth { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{2,2}.</para>
@@ -43,6 +43,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[RegularExpression("[A-Z]{2,2}")]
 		[Required]
 		[XmlElement("CtryOfBirth")]
-		public string CtryOfBirth { get; set; }
+		public string CtryOfBirth { get; init; }
 	}
 }

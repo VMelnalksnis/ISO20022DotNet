@@ -22,7 +22,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(4)]
 		[Required]
 		[XmlElement("Cd")]
-		public string Cd { get; set; }
+		public string Cd { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -32,6 +32,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(4)]
 		[Required]
 		[XmlElement("SubFmlyCd")]
-		public string SubFmlyCd { get; set; }
+		public string SubFmlyCd { get; init; }
 	}
 }

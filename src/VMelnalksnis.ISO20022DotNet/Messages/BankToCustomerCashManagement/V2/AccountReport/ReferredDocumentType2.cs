@@ -16,7 +16,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("CdOrPrtry")]
-		public ReferredDocumentType1Choice CdOrPrtry { get; set; }
+		public ReferredDocumentType1Choice CdOrPrtry { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -25,6 +25,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Issr")]
-		public string Issr { get; set; }
+		public string Issr { get; init; }
 	}
 }

@@ -17,9 +17,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("FinInstnId")]
-		public FinancialInstitutionIdentification7 FinInstnId { get; set; }
+		public FinancialInstitutionIdentification7 FinInstnId { get; init; }
 
 		[XmlElement("BrnchId")]
-		public BranchData2 BrnchId { get; set; }
+		public BranchData2 BrnchId { get; init; }
 	}
 }

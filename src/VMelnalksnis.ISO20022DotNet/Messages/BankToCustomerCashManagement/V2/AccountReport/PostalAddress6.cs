@@ -16,14 +16,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("AdrTp")]
-		public AddressType2Code AdrTpValue { get; set; }
+		public AddressType2Code AdrTpValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the AdrTp property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool AdrTpValueSpecified { get; set; }
+		public bool AdrTpValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public AddressType2Code? AdrTp
@@ -37,7 +37,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				AdrTpValue = value.GetValueOrDefault();
 				AdrTpValueSpecified = value.HasValue;
@@ -51,7 +51,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(70)]
 		[XmlElement("Dept")]
-		public string Dept { get; set; }
+		public string Dept { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -60,7 +60,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(70)]
 		[XmlElement("SubDept")]
-		public string SubDept { get; set; }
+		public string SubDept { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -69,7 +69,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(70)]
 		[XmlElement("StrtNm")]
-		public string StrtNm { get; set; }
+		public string StrtNm { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -78,7 +78,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(16)]
 		[XmlElement("BldgNb")]
-		public string BldgNb { get; set; }
+		public string BldgNb { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -87,7 +87,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(16)]
 		[XmlElement("PstCd")]
-		public string PstCd { get; set; }
+		public string PstCd { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -96,7 +96,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("TwnNm")]
-		public string TwnNm { get; set; }
+		public string TwnNm { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -105,14 +105,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("CtrySubDvsn")]
-		public string CtrySubDvsn { get; set; }
+		public string CtrySubDvsn { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{2,2}.</para>
 		/// </summary>
 		[RegularExpression("[A-Z]{2,2}")]
 		[XmlElement("Ctry")]
-		public string Ctry { get; set; }
+		public string Ctry { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<string> _adrLine;
 

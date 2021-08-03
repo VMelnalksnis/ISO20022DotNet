@@ -14,7 +14,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record EntryDetails1
 	{
 		[XmlElement("Btch")]
-		public BatchInformation2 Btch { get; set; }
+		public BatchInformation2 Btch { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<EntryTransaction2> _txDtls;
 

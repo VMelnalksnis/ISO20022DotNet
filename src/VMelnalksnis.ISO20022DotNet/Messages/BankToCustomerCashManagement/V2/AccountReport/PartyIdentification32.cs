@@ -21,22 +21,22 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("Nm")]
-		public string Nm { get; set; }
+		public string Nm { get; init; }
 
 		[XmlElement("PstlAdr")]
-		public PostalAddress6 PstlAdr { get; set; }
+		public PostalAddress6 PstlAdr { get; init; }
 
 		[XmlElement("Id")]
-		public Party6Choice Id { get; set; }
+		public Party6Choice Id { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [A-Z]{2,2}.</para>
 		/// </summary>
 		[RegularExpression("[A-Z]{2,2}")]
 		[XmlElement("CtryOfRes")]
-		public string CtryOfRes { get; set; }
+		public string CtryOfRes { get; init; }
 
 		[XmlElement("CtctDtls")]
-		public ContactDetails2 CtctDtls { get; set; }
+		public ContactDetails2 CtctDtls { get; init; }
 	}
 }

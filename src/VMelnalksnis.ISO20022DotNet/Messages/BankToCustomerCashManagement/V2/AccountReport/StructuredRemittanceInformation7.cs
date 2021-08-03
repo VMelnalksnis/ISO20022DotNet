@@ -40,16 +40,16 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("RfrdDocAmt")]
-		public RemittanceAmount1 RfrdDocAmt { get; set; }
+		public RemittanceAmount1 RfrdDocAmt { get; init; }
 
 		[XmlElement("CdtrRefInf")]
-		public CreditorReferenceInformation2 CdtrRefInf { get; set; }
+		public CreditorReferenceInformation2 CdtrRefInf { get; init; }
 
 		[XmlElement("Invcr")]
-		public PartyIdentification32 Invcr { get; set; }
+		public PartyIdentification32 Invcr { get; init; }
 
 		[XmlElement("Invcee")]
-		public PartyIdentification32 Invcee { get; set; }
+		public PartyIdentification32 Invcee { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<string> _addtlRmtInf;
 

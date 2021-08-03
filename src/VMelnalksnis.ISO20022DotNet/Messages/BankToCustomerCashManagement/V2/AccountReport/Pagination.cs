@@ -20,10 +20,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[RegularExpression("[0-9]{1,5}")]
 		[Required]
 		[XmlElement("PgNb")]
-		public string PgNb { get; set; }
+		public string PgNb { get; init; }
 
 		[Required]
 		[XmlElement("LastPgInd")]
-		public bool LastPgInd { get; set; }
+		public bool LastPgInd { get; init; }
 	}
 }

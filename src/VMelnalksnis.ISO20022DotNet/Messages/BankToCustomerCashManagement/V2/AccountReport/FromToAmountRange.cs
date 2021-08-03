@@ -16,10 +16,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("FrAmt")]
-		public AmountRangeBoundary1 FrAmt { get; set; }
+		public AmountRangeBoundary1 FrAmt { get; init; }
 
 		[Required]
 		[XmlElement("ToAmt")]
-		public AmountRangeBoundary1 ToAmt { get; set; }
+		public AmountRangeBoundary1 ToAmt { get; init; }
 	}
 }

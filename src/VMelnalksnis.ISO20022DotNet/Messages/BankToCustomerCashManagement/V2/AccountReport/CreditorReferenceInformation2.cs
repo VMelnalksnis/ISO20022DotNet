@@ -15,7 +15,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record CreditorReferenceInformation2
 	{
 		[XmlElement("Tp")]
-		public CreditorReferenceType2 Tp { get; set; }
+		public CreditorReferenceType2 Tp { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -24,6 +24,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Ref")]
-		public string Ref { get; set; }
+		public string Ref { get; init; }
 	}
 }

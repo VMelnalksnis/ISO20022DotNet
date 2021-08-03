@@ -19,9 +19,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[RegularExpression("[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}")]
 		[XmlElement("IBAN")]
-		public string IBAN { get; set; }
+		public string IBAN { get; init; }
 
 		[XmlElement("Othr")]
-		public GenericAccountIdentification1 Othr { get; set; }
+		public GenericAccountIdentification1 Othr { get; init; }
 	}
 }

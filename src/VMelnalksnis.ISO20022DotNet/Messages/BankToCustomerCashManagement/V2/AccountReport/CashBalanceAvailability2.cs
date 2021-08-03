@@ -16,14 +16,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Dt")]
-		public CashBalanceAvailabilityDate1 Dt { get; set; }
+		public CashBalanceAvailabilityDate1 Dt { get; init; }
 
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[Required]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtInd { get; set; }
+		public CreditDebitCode CdtDbtInd { get; init; }
 	}
 }

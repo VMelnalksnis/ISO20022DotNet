@@ -14,16 +14,16 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record AmountAndCurrencyExchange3
 	{
 		[XmlElement("InstdAmt")]
-		public AmountAndCurrencyExchangeDetails3 InstdAmt { get; set; }
+		public AmountAndCurrencyExchangeDetails3 InstdAmt { get; init; }
 
 		[XmlElement("TxAmt")]
-		public AmountAndCurrencyExchangeDetails3 TxAmt { get; set; }
+		public AmountAndCurrencyExchangeDetails3 TxAmt { get; init; }
 
 		[XmlElement("CntrValAmt")]
-		public AmountAndCurrencyExchangeDetails3 CntrValAmt { get; set; }
+		public AmountAndCurrencyExchangeDetails3 CntrValAmt { get; init; }
 
 		[XmlElement("AnncdPstngAmt")]
-		public AmountAndCurrencyExchangeDetails3 AnncdPstngAmt { get; set; }
+		public AmountAndCurrencyExchangeDetails3 AnncdPstngAmt { get; init; }
 
 		[XmlIgnore]
 		private System.Collections.ObjectModel.Collection<AmountAndCurrencyExchangeDetails4> _prtryAmt;

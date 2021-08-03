@@ -14,9 +14,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TransactionQuantities1Choice
 	{
 		[XmlElement("Qty")]
-		public FinancialInstrumentQuantityChoice Qty { get; set; }
+		public FinancialInstrumentQuantityChoice Qty { get; init; }
 
 		[XmlElement("Prtry")]
-		public ProprietaryQuantity1 Prtry { get; set; }
+		public ProprietaryQuantity1 Prtry { get; init; }
 	}
 }

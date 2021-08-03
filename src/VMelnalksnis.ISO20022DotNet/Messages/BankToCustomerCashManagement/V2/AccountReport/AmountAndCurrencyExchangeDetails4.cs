@@ -23,13 +23,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("Tp")]
-		public string Tp { get; set; }
+		public string Tp { get; init; }
 
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[XmlElement("CcyXchg")]
-		public CurrencyExchange5 CcyXchg { get; set; }
+		public CurrencyExchange5 CcyXchg { get; init; }
 	}
 }

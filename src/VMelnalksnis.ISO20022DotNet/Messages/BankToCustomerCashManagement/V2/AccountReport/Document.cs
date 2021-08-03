@@ -30,6 +30,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("BkToCstmrAcctRpt")]
-		public BankToCustomerAccountReportV02 BkToCstmrAcctRpt { get; set; }
+		public BankToCustomerAccountReportV02 BkToCstmrAcctRpt { get; init; }
 	}
 }

@@ -21,7 +21,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("MsgId")]
-		public string MsgId { get; set; }
+		public string MsgId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -30,28 +30,28 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("PmtInfId")]
-		public string PmtInfId { get; set; }
+		public string PmtInfId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: [0-9]{1,15}.</para>
 		/// </summary>
 		[RegularExpression("[0-9]{1,15}")]
 		[XmlElement("NbOfTxs")]
-		public string NbOfTxs { get; set; }
+		public string NbOfTxs { get; init; }
 
 		[XmlElement("TtlAmt")]
-		public ActiveOrHistoricCurrencyAndAmount TtlAmt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount TtlAmt { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtIndValue { get; set; }
+		public CreditDebitCode CdtDbtIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the CdtDbtInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CdtDbtIndValueSpecified { get; set; }
+		public bool CdtDbtIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public CreditDebitCode? CdtDbtInd
@@ -65,7 +65,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				CdtDbtIndValue = value.GetValueOrDefault();
 				CdtDbtIndValueSpecified = value.HasValue;

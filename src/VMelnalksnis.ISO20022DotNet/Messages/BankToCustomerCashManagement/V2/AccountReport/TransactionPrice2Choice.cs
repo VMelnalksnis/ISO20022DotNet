@@ -14,7 +14,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TransactionPrice2Choice
 	{
 		[XmlElement("DealPric")]
-		public ActiveOrHistoricCurrencyAndAmount DealPric { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount DealPric { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<ProprietaryPrice2> _prtry;
 

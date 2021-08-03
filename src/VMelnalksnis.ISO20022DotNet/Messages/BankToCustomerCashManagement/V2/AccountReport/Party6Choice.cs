@@ -14,9 +14,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record Party6Choice
 	{
 		[XmlElement("OrgId")]
-		public OrganisationIdentification4 OrgId { get; set; }
+		public OrganisationIdentification4 OrgId { get; init; }
 
 		[XmlElement("PrvtId")]
-		public PersonIdentification5 PrvtId { get; set; }
+		public PersonIdentification5 PrvtId { get; init; }
 	}
 }

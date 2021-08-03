@@ -20,14 +20,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Unit")]
-		public decimal UnitValue { get; set; }
+		public decimal UnitValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Unit property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool UnitValueSpecified { get; set; }
+		public bool UnitValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 17.</para>
@@ -45,7 +45,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				UnitValue = value.GetValueOrDefault();
 				UnitValueSpecified = value.HasValue;
@@ -59,14 +59,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("FaceAmt")]
-		public decimal FaceAmtValue { get; set; }
+		public decimal FaceAmtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the FaceAmt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool FaceAmtValueSpecified { get; set; }
+		public bool FaceAmtValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum inclusive value: 0.</para>
@@ -85,7 +85,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				FaceAmtValue = value.GetValueOrDefault();
 				FaceAmtValueSpecified = value.HasValue;
@@ -99,14 +99,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("AmtsdVal")]
-		public decimal AmtsdValValue { get; set; }
+		public decimal AmtsdValValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the AmtsdVal property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool AmtsdValValueSpecified { get; set; }
+		public bool AmtsdValValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum inclusive value: 0.</para>
@@ -125,7 +125,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				AmtsdValValue = value.GetValueOrDefault();
 				AmtsdValValueSpecified = value.HasValue;

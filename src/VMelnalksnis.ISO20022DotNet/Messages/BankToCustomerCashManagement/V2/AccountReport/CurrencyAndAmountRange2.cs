@@ -16,18 +16,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Amt")]
-		public ImpliedCurrencyAmountRangeChoice Amt { get; set; }
+		public ImpliedCurrencyAmountRangeChoice Amt { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtIndValue { get; set; }
+		public CreditDebitCode CdtDbtIndValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the CdtDbtInd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CdtDbtIndValueSpecified { get; set; }
+		public bool CdtDbtIndValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public CreditDebitCode? CdtDbtInd
@@ -41,7 +41,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				CdtDbtIndValue = value.GetValueOrDefault();
 				CdtDbtIndValueSpecified = value.HasValue;
@@ -54,6 +54,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[RegularExpression("[A-Z]{3,3}")]
 		[Required]
 		[XmlElement("Ccy")]
-		public string Ccy { get; set; }
+		public string Ccy { get; init; }
 	}
 }

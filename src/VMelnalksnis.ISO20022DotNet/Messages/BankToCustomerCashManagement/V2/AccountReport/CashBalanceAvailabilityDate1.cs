@@ -19,18 +19,18 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[RegularExpression("[+]{0,1}[0-9]{1,15}")]
 		[XmlElement("NbOfDays")]
-		public string NbOfDays { get; set; }
+		public string NbOfDays { get; init; }
 
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("ActlDt", DataType = "date")]
-		public DateTime ActlDtValue { get; set; }
+		public DateTime ActlDtValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the ActlDt property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool ActlDtValueSpecified { get; set; }
+		public bool ActlDtValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public DateTime? ActlDt
@@ -44,7 +44,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				ActlDtValue = value.GetValueOrDefault();
 				ActlDtValueSpecified = value.HasValue;

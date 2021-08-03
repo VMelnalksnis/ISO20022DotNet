@@ -17,9 +17,9 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[XmlElement("CcyXchg")]
-		public CurrencyExchange5 CcyXchg { get; set; }
+		public CurrencyExchange5 CcyXchg { get; init; }
 	}
 }

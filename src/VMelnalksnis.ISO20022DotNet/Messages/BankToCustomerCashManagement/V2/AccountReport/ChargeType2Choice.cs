@@ -15,14 +15,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Cd")]
-		public ChargeType1Code CdValue { get; set; }
+		public ChargeType1Code CdValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Cd property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool CdValueSpecified { get; set; }
+		public bool CdValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public ChargeType1Code? Cd
@@ -36,7 +36,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				CdValue = value.GetValueOrDefault();
 				CdValueSpecified = value.HasValue;
@@ -44,6 +44,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		}
 
 		[XmlElement("Prtry")]
-		public GenericIdentification3 Prtry { get; set; }
+		public GenericIdentification3 Prtry { get; init; }
 	}
 }

@@ -22,17 +22,17 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(35)]
 		[Required]
 		[XmlElement("MsgId")]
-		public string MsgId { get; set; }
+		public string MsgId { get; init; }
 
 		[Required]
 		[XmlElement("CreDtTm", DataType = "dateTime")]
-		public DateTime CreDtTm { get; set; }
+		public DateTime CreDtTm { get; init; }
 
 		[XmlElement("MsgRcpt")]
-		public PartyIdentification32 MsgRcpt { get; set; }
+		public PartyIdentification32 MsgRcpt { get; init; }
 
 		[XmlElement("MsgPgntn")]
-		public Pagination MsgPgntn { get; set; }
+		public Pagination MsgPgntn { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -41,6 +41,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(500)]
 		[XmlElement("AddtlInf")]
-		public string AddtlInf { get; set; }
+		public string AddtlInf { get; init; }
 	}
 }

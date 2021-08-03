@@ -19,7 +19,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[RegularExpression("[0-9]{1,15}")]
 		[XmlElement("NbOfNtries")]
-		public string NbOfNtries { get; set; }
+		public string NbOfNtries { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 17.</para>
@@ -27,14 +27,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		/// </summary>
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("Sum")]
-		public decimal SumValue { get; set; }
+		public decimal SumValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the Sum property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool SumValueSpecified { get; set; }
+		public bool SumValueSpecified { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Total number of digits in fraction: 17.</para>
@@ -52,7 +52,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				SumValue = value.GetValueOrDefault();
 				SumValueSpecified = value.HasValue;

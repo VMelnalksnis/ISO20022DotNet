@@ -22,10 +22,10 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MaxLength(140)]
 		[Required]
 		[XmlElement("Nm")]
-		public string Nm { get; set; }
+		public string Nm { get; init; }
 
 		[Required]
 		[XmlElement("Adr")]
-		public PostalAddress6 Adr { get; set; }
+		public PostalAddress6 Adr { get; init; }
 	}
 }

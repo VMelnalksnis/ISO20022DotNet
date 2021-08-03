@@ -16,14 +16,14 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[EditorBrowsable(EditorBrowsableState.Never)]
 		[XmlElement("NmPrfx")]
-		public NamePrefix1Code NmPrfxValue { get; set; }
+		public NamePrefix1Code NmPrfxValue { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Gets or sets a value indicating whether the NmPrfx property is specified.</para>
 		/// </summary>
 		[XmlIgnore]
 		[EditorBrowsable(EditorBrowsableState.Never)]
-		public bool NmPrfxValueSpecified { get; set; }
+		public bool NmPrfxValueSpecified { get; init; }
 
 		[XmlIgnore]
 		public NamePrefix1Code? NmPrfx
@@ -37,7 +37,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 
 				return null;
 			}
-			set
+			init
 			{
 				NmPrfxValue = value.GetValueOrDefault();
 				NmPrfxValueSpecified = value.HasValue;
@@ -51,28 +51,28 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("Nm")]
-		public string Nm { get; set; }
+		public string Nm { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: \+[0-9]{1,3}-[0-9()+\-]{1,30}.</para>
 		/// </summary>
 		[RegularExpression("\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")]
 		[XmlElement("PhneNb")]
-		public string PhneNb { get; set; }
+		public string PhneNb { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: \+[0-9]{1,3}-[0-9()+\-]{1,30}.</para>
 		/// </summary>
 		[RegularExpression("\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")]
 		[XmlElement("MobNb")]
-		public string MobNb { get; set; }
+		public string MobNb { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Pattern: \+[0-9]{1,3}-[0-9()+\-]{1,30}.</para>
 		/// </summary>
 		[RegularExpression("\\+[0-9]{1,3}-[0-9()+\\-]{1,30}")]
 		[XmlElement("FaxNb")]
-		public string FaxNb { get; set; }
+		public string FaxNb { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -81,7 +81,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(2048)]
 		[XmlElement("EmailAdr")]
-		public string EmailAdr { get; set; }
+		public string EmailAdr { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -90,6 +90,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Othr")]
-		public string Othr { get; set; }
+		public string Othr { get; init; }
 	}
 }

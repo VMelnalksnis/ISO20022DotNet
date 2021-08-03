@@ -14,28 +14,28 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record TransactionParty2
 	{
 		[XmlElement("InitgPty")]
-		public PartyIdentification32 InitgPty { get; set; }
+		public PartyIdentification32 InitgPty { get; init; }
 
 		[XmlElement("Dbtr")]
-		public PartyIdentification32 Dbtr { get; set; }
+		public PartyIdentification32 Dbtr { get; init; }
 
 		[XmlElement("DbtrAcct")]
-		public CashAccount16 DbtrAcct { get; set; }
+		public CashAccount16 DbtrAcct { get; init; }
 
 		[XmlElement("UltmtDbtr")]
-		public PartyIdentification32 UltmtDbtr { get; set; }
+		public PartyIdentification32 UltmtDbtr { get; init; }
 
 		[XmlElement("Cdtr")]
-		public PartyIdentification32 Cdtr { get; set; }
+		public PartyIdentification32 Cdtr { get; init; }
 
 		[XmlElement("CdtrAcct")]
-		public CashAccount16 CdtrAcct { get; set; }
+		public CashAccount16 CdtrAcct { get; init; }
 
 		[XmlElement("UltmtCdtr")]
-		public PartyIdentification32 UltmtCdtr { get; set; }
+		public PartyIdentification32 UltmtCdtr { get; init; }
 
 		[XmlElement("TradgPty")]
-		public PartyIdentification32 TradgPty { get; set; }
+		public PartyIdentification32 TradgPty { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<ProprietaryParty2> _prtry;
 

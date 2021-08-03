@@ -14,7 +14,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	public sealed record PersonIdentification5
 	{
 		[XmlElement("DtAndPlcOfBirth")]
-		public DateAndPlaceOfBirth DtAndPlcOfBirth { get; set; }
+		public DateAndPlaceOfBirth DtAndPlcOfBirth { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<GenericPersonIdentification1> _othr;
 

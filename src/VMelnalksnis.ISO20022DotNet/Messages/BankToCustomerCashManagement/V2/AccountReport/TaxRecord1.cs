@@ -21,7 +21,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Tp")]
-		public string Tp { get; set; }
+		public string Tp { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -30,7 +30,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("Ctgy")]
-		public string Ctgy { get; set; }
+		public string Ctgy { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -39,7 +39,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("CtgyDtls")]
-		public string CtgyDtls { get; set; }
+		public string CtgyDtls { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -48,7 +48,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("DbtrSts")]
-		public string DbtrSts { get; set; }
+		public string DbtrSts { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -57,7 +57,7 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("CertId")]
-		public string CertId { get; set; }
+		public string CertId { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -66,13 +66,13 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(35)]
 		[XmlElement("FrmsCd")]
-		public string FrmsCd { get; set; }
+		public string FrmsCd { get; init; }
 
 		[XmlElement("Prd")]
-		public TaxPeriod1 Prd { get; set; }
+		public TaxPeriod1 Prd { get; init; }
 
 		[XmlElement("TaxAmt")]
-		public TaxAmount1 TaxAmt { get; set; }
+		public TaxAmount1 TaxAmt { get; init; }
 
 		/// <summary>
 		/// <para xml:lang="en">Minimum length: 1.</para>
@@ -81,6 +81,6 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 		[MinLength(1)]
 		[MaxLength(140)]
 		[XmlElement("AddtlInf")]
-		public string AddtlInf { get; set; }
+		public string AddtlInf { get; init; }
 	}
 }

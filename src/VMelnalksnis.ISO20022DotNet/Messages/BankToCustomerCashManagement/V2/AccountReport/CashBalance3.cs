@@ -16,22 +16,22 @@ namespace VMelnalksnis.ISO20022DotNet.Messages.BankToCustomerCashManagement.V2.A
 	{
 		[Required]
 		[XmlElement("Tp")]
-		public BalanceType12 Tp { get; set; }
+		public BalanceType12 Tp { get; init; }
 
 		[XmlElement("CdtLine")]
-		public CreditLine2 CdtLine { get; set; }
+		public CreditLine2 CdtLine { get; init; }
 
 		[Required]
 		[XmlElement("Amt")]
-		public ActiveOrHistoricCurrencyAndAmount Amt { get; set; }
+		public ActiveOrHistoricCurrencyAndAmount Amt { get; init; }
 
 		[Required]
 		[XmlElement("CdtDbtInd")]
-		public CreditDebitCode CdtDbtInd { get; set; }
+		public CreditDebitCode CdtDbtInd { get; init; }
 
 		[Required]
 		[XmlElement("Dt")]
-		public DateAndDateTimeChoice Dt { get; set; }
+		public DateAndDateTimeChoice Dt { get; init; }
 
 		[XmlIgnore] private System.Collections.ObjectModel.Collection<CashBalanceAvailability2> _avlbty;
 
