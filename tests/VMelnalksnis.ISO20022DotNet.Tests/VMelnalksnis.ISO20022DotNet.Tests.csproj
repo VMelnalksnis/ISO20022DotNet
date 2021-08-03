@@ -29,4 +29,17 @@
       <ProjectReference Include="..\..\src\VMelnalksnis.ISO20022DotNet\VMelnalksnis.ISO20022DotNet.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Messages\BankToCustomerCashManagement\V2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Messages\BankToCustomerCashManagement\V2\AccountReport\BankToCustomerAccountReportV02.xml">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="Messages\BankToCustomerCashManagement\V2\AccountReport\camt.052.001.02.xsd">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
