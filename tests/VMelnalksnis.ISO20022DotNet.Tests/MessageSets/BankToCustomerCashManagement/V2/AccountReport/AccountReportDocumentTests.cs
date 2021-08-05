@@ -136,44 +136,44 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 													References = new() { EndToEndIdentification = "34" },
 													AmountDetails = new()
 													{
-														InstdAmt = new()
+														InstructedAmount = new()
 														{
-															Amt = new() { Value = 100, Currency = "EUR" },
+															Amount = new() { Value = 100, Currency = "EUR" },
 														},
-														TxAmt = new()
+														TransactionAmount = new()
 														{
-															Amt = new() { Value = 128.2m, Currency = "USD" },
-															CcyXchg = new()
+															Amount = new() { Value = 128.2m, Currency = "USD" },
+															CurrencyExchange = new()
 															{
-																SrcCcy = "USD",
-																TrgtCcy = "EUR",
-																UnitCcy = "USD",
-																XchgRate = 1.282m,
+																SourceCurrency = "USD",
+																TargetCurrency = "EUR",
+																UnitCurrency = "USD",
+																ExchangeRate = 1.282m,
 															},
 														},
 													},
 													RelatedParties = new()
 													{
-														Cdtr = new()
+														Creditor = new()
 														{
 															Name = "Gatis Egle",
 															Identification = new()
 															{
-																PrvtId = new()
+																PrivateIdentification = new()
 																{
-																	Othr =
+																	Other =
 																	{
 																		new GenericPersonIdentification1
 																		{
-																			Id = "121212-12121",
+																			Identification = "121212-12121",
 																		},
 																	},
 																},
 															},
 														},
-														CdtrAcct = new()
+														CreditorAccount = new()
 														{
-															Id = new() { Iban = "LV21TEST0000000000002" },
+															Identification = new() { Iban = "LV21TEST0000000000002" },
 														},
 													},
 													RemittanceInformation = new()
