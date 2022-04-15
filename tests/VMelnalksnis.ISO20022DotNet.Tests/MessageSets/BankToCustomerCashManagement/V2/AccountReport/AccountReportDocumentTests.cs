@@ -243,6 +243,7 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 		private static EquivalencyAssertionOptions<Document> Config(EquivalencyAssertionOptions<Document> options)
 		{
 			return options
+				.AllowingInfiniteRecursion()
 				.ComparingByMembers<Document>()
 				.ComparingByMembers<BankToCustomerAccountReportV02>()
 				.ComparingByMembers<GroupHeader42>()
