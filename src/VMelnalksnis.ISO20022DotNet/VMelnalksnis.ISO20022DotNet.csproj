@@ -36,7 +36,7 @@
 
     <ItemGroup>
         <PackageReference Include="NodaTime" Version="3.0.10"/>
-        <PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.2.0.354">
+        <PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.2.0.406">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
