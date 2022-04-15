@@ -23,8 +23,8 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
 
         <Major>0</Major>
-        <Minor>1</Minor>
-        <Revision>2</Revision>
+        <Minor>2</Minor>
+        <Revision>0</Revision>
 
         <BuildNumber Condition=" '$(BuildNumber)' == '' ">0</BuildNumber>
 
