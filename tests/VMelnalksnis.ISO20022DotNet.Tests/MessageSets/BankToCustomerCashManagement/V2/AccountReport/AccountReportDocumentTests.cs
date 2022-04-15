@@ -22,6 +22,8 @@ using FluentAssertions;
 using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 
+using NodaTime;
+
 using NUnit.Framework;
 
 using VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V2.AccountReport;
@@ -33,7 +35,9 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 		[Test]
 		public void ReadActualDocument()
 		{
-			var creationDateTime = new DateTime(2001, 12, 17, 09, 30, 47, DateTimeKind.Utc);
+			var creationInstant = Instant.FromUtc(2001, 12, 17, 09, 30, 47);
+			var date = new LocalDate(2001, 12, 17);
+
 			var expectedDocument = new Document
 			{
 				BankToCustomerAccountReport = new()
@@ -41,18 +45,18 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 					GroupHeader = new()
 					{
 						MessageIdentification = "STMT20130710193521",
-						CreationDateTime = creationDateTime,
+						CreationDateTime = creationInstant,
 					},
 					Reports =
 					{
 						new AccountReport11
 						{
 							Identification = "5074322222537",
-							CreationDateTime = creationDateTime,
+							CreationDateTime = creationInstant,
 							FromToDate = new()
 							{
-								FrDtTm = creationDateTime,
-								ToDtTm = creationDateTime,
+								FrDtTm = creationInstant,
+								ToDtTm = creationInstant,
 							},
 							Account = new()
 							{
@@ -73,7 +77,7 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 									},
 									Amount = new() { Value = 500, Currency = "USD" },
 									CreditDebitIndicator = CreditDebitCode.CRDT,
-									Date = new() { Date = creationDateTime.Date },
+									Date = new() { Date = date },
 								},
 							},
 							Entry =
@@ -83,7 +87,7 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 									Amount = new() { Value = 3, Currency = "USD" },
 									CreditDebitIndicator = CreditDebitCode.DBIT,
 									Status = EntryStatus2Code.BOOK,
-									BookingDate = new() { Date = creationDateTime.Date },
+									BookingDate = new() { Date = date },
 									AccountServicerReference = "123456789",
 									BankTransactionCode = new()
 									{
@@ -115,7 +119,7 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 									Amount = new() { Value = 128.2m, Currency = "USD" },
 									CreditDebitIndicator = CreditDebitCode.DBIT,
 									Status = EntryStatus2Code.BOOK,
-									BookingDate = new() { Date = creationDateTime.Date },
+									BookingDate = new() { Date = date },
 									AccountServicerReference = "12334567234",
 									BankTransactionCode = new()
 									{

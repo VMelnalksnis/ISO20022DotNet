@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
+using NodaTime;
+
 namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V2.AccountReport
 {
 	[GeneratedCode("XmlSchemaClassGenerator", "2.0.565.0")]
@@ -15,11 +17,11 @@ namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V
 	public sealed record DateTimePeriodDetails
 	{
 		[Required]
-		[XmlElement("FrDtTm", DataType = "dateTime")]
-		public DateTime FrDtTm { get; init; }
+		[XmlElement("FrDtTm")]
+		public Instant FrDtTm { get; init; }
 
 		[Required]
-		[XmlElement("ToDtTm", DataType = "dateTime")]
-		public DateTime ToDtTm { get; init; }
+		[XmlElement("ToDtTm")]
+		public Instant ToDtTm { get; init; }
 	}
 }

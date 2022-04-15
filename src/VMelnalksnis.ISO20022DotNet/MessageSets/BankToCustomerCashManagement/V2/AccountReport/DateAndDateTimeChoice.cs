@@ -16,6 +16,8 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
+using NodaTime;
+
 namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V2.AccountReport
 {
 	/// <summary>
@@ -30,13 +32,13 @@ namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V
 		/// <summary>
 		/// Gets specified date.
 		/// </summary>
-		[XmlElement("Dt", DataType = "date")]
-		public DateTime? Date { get; init; }
+		[XmlElement("Dt")]
+		public LocalDate? Date { get; init; }
 
 		/// <summary>
 		/// Gets specified date and time.
 		/// </summary>
-		[XmlElement("DtTm", DataType = "dateTime")]
-		public DateTime? DateTime { get; init; }
+		[XmlElement("DtTm")]
+		public LocalDateTime? DateTime { get; init; }
 	}
 }

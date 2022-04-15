@@ -18,6 +18,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Xml.Serialization;
 
+using NodaTime;
+
 namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V2.AccountReport
 {
 	/// <summary>
@@ -69,8 +71,8 @@ namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V
 		/// Gets date and time at which the message was created.
 		/// </summary>
 		[Required]
-		[XmlElement("CreDtTm", DataType = "dateTime")]
-		public DateTime CreationDateTime { get; init; }
+		[XmlElement("CreDtTm")]
+		public Instant CreationDateTime { get; init; }
 
 		/// <summary>
 		/// Gets range of time between a start date and an end date for which the account report is issued.
