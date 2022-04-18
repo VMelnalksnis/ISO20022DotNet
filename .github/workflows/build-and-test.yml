@@ -25,7 +25,19 @@ jobs:
         run: dotnet build --configuration Release --no-restore
 
       - name: Run Unit Tests
-        run: dotnet test -p:CollectCoverage=true -p:CoverletOutput=TestResults/ -p:CoverletOutputFormat=opencover --configuration Release --no-build --verbosity normal
+        run: > 
+          dotnet test
+          -p:CollectCoverage=true
+          -p:CoverletOutput=TestResults/
+          -p:CoverletOutputFormat=opencover
+          --configuration Release
+          --no-build
+          --verbosity normal
+
+      - name: ReSharper annotations
+        uses: VMelnalksnis/resharper-inspect-action@v0.2.1
+        with:
+          solution: VMelnalksnis.ISO20022DotNet.sln
 
       - name: Gather Code Coverage
         uses: codecov/codecov-action@v2
