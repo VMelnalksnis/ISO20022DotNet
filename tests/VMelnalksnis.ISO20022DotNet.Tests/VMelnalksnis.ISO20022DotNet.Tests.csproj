@@ -35,18 +35,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Update="Messages\BankToCustomerCashManagement\V2\AccountReport\BankToCustomerAccountReportV02.xml">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="Messages\BankToCustomerCashManagement\V2\AccountReport\camt.052.001.02.xsd">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="MessageSets\BankToCustomerCashManagement\V2\AccountReport\camt.052.001.02.xsd">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
-        <None Update="MessageSets\BankToCustomerCashManagement\V2\AccountReport\BankToCustomerAccountReportV02.xml">
-            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-        </None>
+        <EmbeddedResource Include="MessageSets\BankToCustomerCashManagement\V2\AccountReport\camt.052.001.02.xsd"/>
+        <EmbeddedResource Include="MessageSets\BankToCustomerCashManagement\V2\AccountReport\BankToCustomerAccountReportV02.xml"/>
     </ItemGroup>
 
 </Project>

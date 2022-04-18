@@ -14,6 +14,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
@@ -195,13 +197,8 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 				},
 			};
 
-			var directory = Path.Combine(
-				TestContext.CurrentContext.TestDirectory,
-				"MessageSets/BankToCustomerCashManagement/V2/AccountReport/");
-
-			var schemaFilePath = Path.Combine(directory, "camt.052.001.02.xsd");
 			var schemas = new XmlSchemaSet();
-			using var schemaStream = File.OpenRead(schemaFilePath);
+			using var schemaStream = ReadEmbeddedResource("camt.052.001.02.xsd");
 			var schemaXmlReader = XmlReader.Create(schemaStream);
 			schemas.Add("urn:iso:std:iso:20022:tech:xsd:camt.052.001.02", schemaXmlReader);
 
@@ -227,8 +224,7 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 				Console.WriteLine(args.Exception.ToString());
 			};
 
-			var dataFilePath = Path.Combine(directory, "BankToCustomerAccountReportV02.xml");
-			using var stream = File.OpenRead(dataFilePath);
+			using var stream = ReadEmbeddedResource("BankToCustomerAccountReportV02.xml");
 			using var xmlReader = XmlReader.Create(stream, xmlSettings);
 			var serializer = new XmlSerializer(typeof(Document));
 			var document = (Document)serializer.Deserialize(xmlReader)!;
@@ -238,6 +234,17 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 				exceptions.Should().BeEmpty();
 				document.Should().BeEquivalentTo(expectedDocument, Config);
 			}
+		}
+
+		private static Stream ReadEmbeddedResource(string resource)
+		{
+			var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(typeof(AccountReportDocumentTests), resource);
+			if (stream is null)
+			{
+				throw new MissingManifestResourceException();
+			}
+
+			return stream;
 		}
 
 		private static EquivalencyAssertionOptions<Document> Config(EquivalencyAssertionOptions<Document> options)
