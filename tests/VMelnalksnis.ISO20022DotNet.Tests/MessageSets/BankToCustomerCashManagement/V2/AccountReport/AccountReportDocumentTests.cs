@@ -35,7 +35,7 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 		[Test]
 		public void ReadActualDocument()
 		{
-			var creationInstant = Instant.FromUtc(2001, 12, 17, 09, 30, 47);
+			var dateTime = new LocalDateTime(2001, 12, 17, 09, 30, 47);
 			var date = new LocalDate(2001, 12, 17);
 
 			var expectedDocument = new Document
@@ -45,18 +45,18 @@ namespace VMelnalksnis.ISO20022DotNet.Tests.MessageSets.BankToCustomerCashManage
 					GroupHeader = new()
 					{
 						MessageIdentification = "STMT20130710193521",
-						CreationDateTime = creationInstant,
+						CreationDateTime = dateTime,
 					},
 					Reports =
 					{
 						new AccountReport11
 						{
 							Identification = "5074322222537",
-							CreationDateTime = creationInstant,
+							CreationDateTime = dateTime,
 							FromToDate = new()
 							{
-								FrDtTm = creationInstant,
-								ToDtTm = creationInstant,
+								FrDtTm = dateTime,
+								ToDtTm = dateTime,
 							},
 							Account = new()
 							{

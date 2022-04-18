@@ -49,7 +49,7 @@ namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V
 		/// </summary>
 		[Required]
 		[XmlElement("CreDtTm")]
-		public Instant CreationDateTime { get; init; }
+		public LocalDateTime CreationDateTime { get; init; }
 
 		/// <summary>
 		/// Gets party authorised by the account owner to receive information about movements on the account.

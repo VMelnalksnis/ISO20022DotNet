@@ -18,10 +18,10 @@ namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V
 	{
 		[Required]
 		[XmlElement("FrDtTm")]
-		public Instant FrDtTm { get; init; }
+		public LocalDateTime FrDtTm { get; init; }
 
 		[Required]
 		[XmlElement("ToDtTm")]
-		public Instant ToDtTm { get; init; }
+		public LocalDateTime ToDtTm { get; init; }
 	}
 }

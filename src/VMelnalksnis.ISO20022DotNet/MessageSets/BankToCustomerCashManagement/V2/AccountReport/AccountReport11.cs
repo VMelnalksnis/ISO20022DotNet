@@ -72,7 +72,7 @@ namespace VMelnalksnis.ISO20022DotNet.MessageSets.BankToCustomerCashManagement.V
 		/// </summary>
 		[Required]
 		[XmlElement("CreDtTm")]
-		public Instant CreationDateTime { get; init; }
+		public LocalDateTime CreationDateTime { get; init; }
 
 		/// <summary>
 		/// Gets range of time between a start date and an end date for which the account report is issued.
