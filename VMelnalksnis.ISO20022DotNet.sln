@@ -15,6 +15,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMelnalksnis.ISO20022DotNet.Tests", "tests\VMelnalksnis.ISO20022DotNet.Tests\VMelnalksnis.ISO20022DotNet.Tests.csproj", "{D2CD56EB-494B-4A1F-820A-5FBC73E70491}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{D744ADD7-E267-45F2-A5F8-E49F05BBEDBE}"
+	ProjectSection(SolutionItems) = preProject
+		.github\dependabot.yml = .github\dependabot.yml
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{E4EDD697-399B-4683-8DB9-B8DC2D6E2B0B}"
 	ProjectSection(SolutionItems) = preProject
