@@ -1,6 +1,8 @@
 name: build and test
 
 on:
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -8,13 +10,16 @@ jobs:
   build-and-test:
     name: Build and test
     runs-on: ubuntu-latest
+    env:
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3.0.2
 
-      - name: Install .NET 6
-        uses: actions/setup-dotnet@v1
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2.1.0
         with:
           dotnet-version: 6.0.x
 
@@ -22,24 +27,24 @@ jobs:
         run: dotnet restore
 
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore /nologo /clp:NoSummary
 
-      - name: Run Unit Tests
-        run: > 
+      - name: Run Tests
+        run: >
           dotnet test
           -p:CollectCoverage=true
           -p:CoverletOutput=TestResults/
           -p:CoverletOutputFormat=opencover
           --configuration Release
           --no-build
-          --verbosity normal
 
       - name: ReSharper annotations
-        uses: VMelnalksnis/resharper-inspect-action@v0.2.1
+        uses: VMelnalksnis/resharper-inspect-action@v0.2.2
         with:
           solution: VMelnalksnis.ISO20022DotNet.sln
 
       - name: Gather Code Coverage
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0
         with:
+          fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
