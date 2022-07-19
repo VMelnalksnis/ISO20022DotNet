@@ -6,7 +6,7 @@ package_name="$1.$version.nupkg"
 symbols_name="$1.$version.snupkg"
 
 dotnet pack \
-  ./source/"$1"/"$1".csproj \
+  ./src/"$1"/"$1".csproj \
   --configuration Release \
   -p:AssemblyVersion="$full_version" \
   -p:AssemblyFileVersion="$full_version" \
