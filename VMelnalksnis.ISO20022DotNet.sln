@@ -10,6 +10,7 @@ ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 	stylecop.json = stylecop.json
 	Directory.Build.props = Directory.Build.props
+	version = version
 EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VMelnalksnis.ISO20022DotNet.Tests", "tests\VMelnalksnis.ISO20022DotNet.Tests\VMelnalksnis.ISO20022DotNet.Tests.csproj", "{D2CD56EB-494B-4A1F-820A-5FBC73E70491}"
