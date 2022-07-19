@@ -2,22 +2,11 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <LangVersion>Latest</LangVersion>
-
-        <Nullable>enable</Nullable>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
         <Product>VMelnalksnis.ISO20022DotNet</Product>
         <ProductId>VMelnalksnis.ISO20022DotNet</ProductId>
         <Description>ISO 20022 message models for .NET</Description>
-        <Copyright>Valters Melnalksnis</Copyright>
-        <NeutralLanguage>en-US</NeutralLanguage>
-        <Authors>Valters Melnalksnis</Authors>
         <PackageTags>iso20022</PackageTags>
-        <RepositoryUrl>https://github.com/VMelnalksnis/ISO20022DotNet</RepositoryUrl>
-        <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <RepositoryType>git</RepositoryType>
         <IsPackable>true</IsPackable>
         <IncludeSymbols>true</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -39,10 +28,6 @@
 
     <ItemGroup>
         <PackageReference Include="NodaTime" Version="3.1.0"/>
-        <PackageReference Include="StyleCop.Analyzers.Unstable" Version="1.2.0.406">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
     </ItemGroup>
 
     <ItemGroup>
