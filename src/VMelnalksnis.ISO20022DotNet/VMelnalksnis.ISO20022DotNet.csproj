@@ -34,6 +34,7 @@
         <PackageVersion>$(Major).$(Minor).$(Revision).$(BuildNumber)</PackageVersion>
         <SignAssembly>true</SignAssembly>
         <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -42,6 +43,10 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\..\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
 </Project>
