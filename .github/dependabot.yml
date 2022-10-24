@@ -9,3 +9,5 @@ updates:
     open-pull-requests-limit: 100
     assignees:
       - "VMelnalksnis"
+    reviewers:
+      - "VMelnalksnis"
