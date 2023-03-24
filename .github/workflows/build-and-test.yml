@@ -40,7 +40,7 @@ jobs:
           --no-build
 
       - name: ReSharper annotations
-        uses: VMelnalksnis/resharper-inspect-action@v0.2.3
+        uses: VMelnalksnis/resharper-inspect-action@v0.2.5
         with:
           solution: VMelnalksnis.ISO20022DotNet.sln
           resharper-version: '2021.3.4'
