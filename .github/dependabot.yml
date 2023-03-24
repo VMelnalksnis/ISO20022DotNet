@@ -1,11 +1,20 @@
 version: 2
 updates:
+
   - package-ecosystem: "nuget"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "07:00"
-      timezone: "Europe/Riga"
+      interval: "weekly"
+    open-pull-requests-limit: 100
+    assignees:
+      - "VMelnalksnis"
+    reviewers:
+      - "VMelnalksnis"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
     open-pull-requests-limit: 100
     assignees:
       - "VMelnalksnis"
