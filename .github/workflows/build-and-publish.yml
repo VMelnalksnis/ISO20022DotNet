@@ -20,7 +20,7 @@ jobs:
           - VMelnalksnis.ISO20022DotNet
 
     steps:
-      - uses: actions/checkout@v3.5.0
+      - uses: actions/checkout@v3.5.2
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3.0.3
