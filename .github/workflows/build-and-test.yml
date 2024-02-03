@@ -47,7 +47,7 @@ jobs:
           treat-warnings-as-errors: false
 
       - name: Gather Code Coverage
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.0.1
         with:
           fail_ci_if_error: true
           token: ${{ secrets.CODECOV_TOKEN }}
